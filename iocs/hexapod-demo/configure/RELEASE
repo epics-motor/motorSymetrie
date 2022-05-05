@@ -6,3 +6,5 @@
 -include $(TOP)/../../configure/RELEASE.local
 # Use this IOCs RELEASE.local when building outside motorSymetrie
 -include $(TOP)/configure/RELEASE.local
+
+SYMETRIE=$(TOP)/../../
