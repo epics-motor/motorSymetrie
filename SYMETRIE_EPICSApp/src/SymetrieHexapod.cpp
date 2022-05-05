@@ -9,6 +9,7 @@
  *
  ********************************************/
 #include <epicsString.h>
+#include <epicsMath.h>
 #include <iocsh.h>
 #include <drvSup.h>
 #include <registryFunction.h>
@@ -827,7 +828,7 @@ int SymetrieHexapod::applyConfigUserLimitEnable()
 
 int SymetrieHexapod::applyConfigControl()
 {
-  double values[13]={NAN};//NAN
+  double values[13]={epicsNAN};//NAN
   int status = 0;
   this->lock();
 
