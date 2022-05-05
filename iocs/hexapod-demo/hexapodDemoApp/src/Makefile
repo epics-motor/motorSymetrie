@@ -1,7 +1,7 @@
 TOP = ../..
 include $(TOP)/configure/CONFIG
 
-PROD_IOC = hexapodDemo
+PROD_IOC_Linux = hexapodDemo
 DBD += hexapodDemo.dbd
 hexapodDemo_DBD += base.dbd
 hexapodDemo_DBD += asyn.dbd
