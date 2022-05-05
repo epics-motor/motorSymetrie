@@ -1,0 +1,62 @@
+##############################################################
+#
+# Hexapod Error records
+#
+##############################################################
+
+record(longin, "$(P)$(R)ERR_INFO:$(ADDR):Index") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),$(ADDR))SYM_HEX_ERROR_QTY")
+}
+
+record(longin, "$(P)$(R)ERR_INFO:$(ADDR):Code") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),$(ADDR))SYM_HEX_ERROR_CODE")
+}
+
+record(waveform, "$(P)$(R)Drv:$(ADDR):ErrorDescription_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(SCAN, "I/O Intr")
+  field(FTVL, "CHAR")
+  field(INP, "@asyn($(PORT),$(ADDR))SYM_HEX_ERROR_DESC")
+  field(NELM, "2048")
+}
+
+record(ai, "$(P)$(R)ERR_INFO:$(ADDR):Time") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),$(ADDR))SYM_HEX_ERROR_TIME")
+}
+
+record(longin, "$(P)$(R)ERR_INFO:$(ADDR):Group") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),$(ADDR))SYM_HEX_ERROR_GROUP")
+}
+
+record(longin, "$(P)$(R)ERR_INFO:$(ADDR):Axis") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),$(ADDR))SYM_HEX_ERROR_AXIS")
+}
+
+record(longin, "$(P)$(R)ERR_INFO:$(ADDR):Return") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),$(ADDR))SYM_HEX_ERROR_RETURN")
+}
+
+record(longin, "$(P)$(R)ERR_INFO:$(ADDR):Data") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),$(ADDR))SYM_HEX_ERROR_DATA1")
+}
+
+record(longin, "$(P)$(R)ERR_INFO:$(ADDR):Data2") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),$(ADDR))SYM_HEX_ERROR_DATA2")
+}
+

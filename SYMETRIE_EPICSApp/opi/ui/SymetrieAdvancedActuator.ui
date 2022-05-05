@@ -1,0 +1,4189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="PyDMFrame" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>770</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Advanced states</string>
+  </property>
+  <property name="toolTip">
+   <string/>
+  </property>
+  <property name="whatsThis">
+   <string>
+    QFrame with support for alarms
+    This class inherits from QFrame and PyDMWidget.
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+  </property>
+  <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>101</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/Survey_32px.png</normaloff>icons/Survey_32px.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+   <property name="filenames" stdset="0">
+    <string>SymetrieAdvancedGeneral.ui</string>
+   </property>
+  </widget>
+  <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_2">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>10</y>
+     <width>101</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/Gears_32px.png</normaloff>icons/Gears_32px.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_8">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>550</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Drive fault</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_9">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>340</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Phase found</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_11">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>400</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Homing hardware input</string>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_6">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>280</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:HomeTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_7">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>310</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:HomeComplete_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_9">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>340</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:PhaseFound_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_14">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>490</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:SoftwareLimit_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_11">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>400</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:HomeHardwareInput_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_2">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>190</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:ControlOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>250</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Motion task running</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Error</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Control on</string>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_15">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>460</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:PositiveLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>280</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Home task running</string>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_10">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>370</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:BrakeOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_14">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>490</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Software limit reached</string>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_13">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>520</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:FollowingError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>160</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:Error_RBV</string>
+   </property>
+   <property name="onColor" stdset="0">
+    <color>
+     <red>255</red>
+     <green>0</green>
+     <blue>0</blue>
+    </color>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_15">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>520</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Following error</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_13">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>460</y>
+     <width>221</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Positive hardware limit switch</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_12">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>430</y>
+     <width>221</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Negative hardware limit switch</string>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_12">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>430</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:NegativeLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_3">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>220</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:InPosition_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_10">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>370</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Brake on</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>In position</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_7">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>310</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Home complete</string>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_5">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>250</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:MotionTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_16">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>580</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Encoder error</string>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_16">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>550</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:DriveFault_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_17">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>580</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_1:EncoderError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_4">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>160</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:Error_RBV</string>
+   </property>
+   <property name="onColor" stdset="0">
+    <color>
+     <red>255</red>
+     <green>0</green>
+     <blue>0</blue>
+    </color>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_18">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>370</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:BrakeOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_19">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>430</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:NegativeLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_20">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>340</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:PhaseFound_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_8">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>220</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:InPosition_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_21">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>250</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:MotionTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_22">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>280</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:HomeTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_23">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>550</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:DriveFault_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_24">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>490</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:SoftwareLimit_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_25">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>520</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:FollowingError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_26">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>310</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:HomeComplete_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_27">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>190</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:ControlOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_28">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>400</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:HomeHardwareInput_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_29">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>460</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:PositiveLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_30">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>580</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_2:EncoderError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_31">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>160</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:Error_RBV</string>
+   </property>
+   <property name="onColor" stdset="0">
+    <color>
+     <red>255</red>
+     <green>0</green>
+     <blue>0</blue>
+    </color>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_32">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>370</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:BrakeOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_33">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>430</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:NegativeLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_34">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>340</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:PhaseFound_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_35">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>220</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:InPosition_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_36">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>250</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:MotionTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_37">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>280</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:HomeTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_38">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>550</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:DriveFault_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_39">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>490</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:SoftwareLimit_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_40">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>520</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:FollowingError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_41">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>310</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:HomeComplete_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_42">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>190</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:ControlOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_43">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>400</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:HomeHardwareInput_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_44">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>460</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:PositiveLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_45">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>580</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_3:EncoderError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_46">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>160</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:Error_RBV</string>
+   </property>
+   <property name="onColor" stdset="0">
+    <color>
+     <red>255</red>
+     <green>0</green>
+     <blue>0</blue>
+    </color>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_47">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>370</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:BrakeOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_48">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>430</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:NegativeLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_49">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>340</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:PhaseFound_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_50">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>220</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:InPosition_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_51">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>250</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:MotionTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_52">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>280</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:HomeTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_53">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>550</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:DriveFault_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_54">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>490</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:SoftwareLimit_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_55">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>520</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:FollowingError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_56">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>310</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:HomeComplete_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_57">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>190</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:ControlOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_58">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>400</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:HomeHardwareInput_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_59">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>460</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:PositiveLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_60">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>580</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_4:EncoderError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_61">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>160</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:Error_RBV</string>
+   </property>
+   <property name="onColor" stdset="0">
+    <color>
+     <red>255</red>
+     <green>0</green>
+     <blue>0</blue>
+    </color>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_62">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>370</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:BrakeOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_63">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>430</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:NegativeLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_64">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>340</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:PhaseFound_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_65">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>220</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:InPosition_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_66">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>250</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:MotionTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_67">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>280</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:HomeTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_68">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>550</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:DriveFault_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_69">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>490</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:SoftwareLimit_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_70">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>520</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:FollowingError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_71">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>310</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:HomeComplete_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_72">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>190</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:ControlOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_73">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>400</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:HomeHardwareInput_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_74">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>460</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:PositiveLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_75">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>580</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_5:EncoderError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_76">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>160</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:Error_RBV</string>
+   </property>
+   <property name="onColor" stdset="0">
+    <color>
+     <red>255</red>
+     <green>0</green>
+     <blue>0</blue>
+    </color>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_77">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>370</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:BrakeOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_78">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>430</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:NegativeLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_79">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>340</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:PhaseFound_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_80">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>220</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:InPosition_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_81">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>250</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:MotionTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_82">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>280</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:HomeTaskRunning_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_83">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>550</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:DriveFault_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_84">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>490</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:SoftwareLimit_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_85">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>520</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:FollowingError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_86">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>310</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:HomeComplete_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_87">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>190</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:ControlOn_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_88">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>400</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:HomeHardwareInput_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_89">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>460</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:PositiveLimitSwitch_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMByteIndicator" name="s_hexa_Initialised_90">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>580</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    Widget for graphical representation of bits from an integer number
+    with support for Channels and more from PyDM
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}s_ax_6:EncoderError_RBV</string>
+   </property>
+   <property name="labels" stdset="0">
+    <stringlist/>
+   </property>
+  </widget>
+  <widget class="PyDMFrame" name="PyDMFrame_3">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>100</y>
+     <width>241</width>
+     <height>321</height>
+    </rect>
+   </property>
+   <property name="palette">
+    <palette>
+     <active/>
+     <inactive/>
+     <disabled/>
+    </palette>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    QFrame with support for alarms
+    This class inherits from QFrame and PyDMWidget.
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="alarmSensitiveContent" stdset="0">
+    <bool>false</bool>
+   </property>
+   <widget class="PyDMLabel" name="PyDMLabel_28">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>270</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_29">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>180</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precision" stdset="0">
+     <number>4</number>
+    </property>
+    <property name="showUnits" stdset="0">
+     <bool>true</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${P}${R}s_pos_ax_4_RBV</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_30">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>260</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precision" stdset="0">
+     <number>4</number>
+    </property>
+    <property name="showUnits" stdset="0">
+     <bool>true</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${P}${R}s_pos_ax_6_RBV</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_31">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>220</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precision" stdset="0">
+     <number>4</number>
+    </property>
+    <property name="showUnits" stdset="0">
+     <bool>true</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${P}${R}s_pos_ax_5_RBV</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_32">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>150</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_33">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>70</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_34">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>100</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precision" stdset="0">
+     <number>4</number>
+    </property>
+    <property name="showUnits" stdset="0">
+     <bool>true</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${P}${R}s_pos_ax_2_RBV</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_35">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>140</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precision" stdset="0">
+     <number>4</number>
+    </property>
+    <property name="showUnits" stdset="0">
+     <bool>true</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${P}${R}s_pos_ax_3_RBV</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_36">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>230</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_37">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>60</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="margin">
+     <number>0</number>
+    </property>
+    <property name="alarmSensitiveBorder" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precisionFromPV" stdset="0">
+     <bool>false</bool>
+    </property>
+    <property name="precision" stdset="0">
+     <number>4</number>
+    </property>
+    <property name="showUnits" stdset="0">
+     <bool>true</bool>
+    </property>
+    <property name="channel" stdset="0">
+     <string>ca://${P}${R}s_pos_ax_1_RBV</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_38">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>190</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </widget>
+   <widget class="PyDMLabel" name="PyDMLabel_39">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>110</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Length</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>60</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Error</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_4">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>10</y>
+     <width>101</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/icons8_Error_32px.png</normaloff>icons/icons8_Error_32px.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+   <property name="filenames" stdset="0">
+    <string>SymetrieAdvancedError.ui</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>General</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>60</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Actuator</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>80</y>
+     <width>701</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>191</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>State</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_17">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>130</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>1</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_18">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>130</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>2</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_19">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>130</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_20">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>130</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>4</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_21">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>130</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>5</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_22">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>130</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>6</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <zorder>label_4</zorder>
+  <zorder>PyDMRelatedDisplayButton</zorder>
+  <zorder>PyDMRelatedDisplayButton_2</zorder>
+  <zorder>PyDMLabel_8</zorder>
+  <zorder>PyDMLabel_9</zorder>
+  <zorder>PyDMLabel_11</zorder>
+  <zorder>s_hexa_Initialised_6</zorder>
+  <zorder>s_hexa_Initialised_7</zorder>
+  <zorder>s_hexa_Initialised_9</zorder>
+  <zorder>s_hexa_Initialised_14</zorder>
+  <zorder>s_hexa_Initialised_11</zorder>
+  <zorder>s_hexa_Initialised_2</zorder>
+  <zorder>PyDMLabel_5</zorder>
+  <zorder>PyDMLabel</zorder>
+  <zorder>PyDMLabel_2</zorder>
+  <zorder>s_hexa_Initialised_15</zorder>
+  <zorder>PyDMLabel_6</zorder>
+  <zorder>s_hexa_Initialised_10</zorder>
+  <zorder>PyDMLabel_14</zorder>
+  <zorder>s_hexa_Initialised_13</zorder>
+  <zorder>s_hexa_Initialised</zorder>
+  <zorder>PyDMLabel_15</zorder>
+  <zorder>PyDMLabel_13</zorder>
+  <zorder>PyDMLabel_12</zorder>
+  <zorder>s_hexa_Initialised_12</zorder>
+  <zorder>s_hexa_Initialised_3</zorder>
+  <zorder>PyDMLabel_10</zorder>
+  <zorder>PyDMLabel_4</zorder>
+  <zorder>PyDMLabel_7</zorder>
+  <zorder>s_hexa_Initialised_5</zorder>
+  <zorder>PyDMLabel_16</zorder>
+  <zorder>s_hexa_Initialised_16</zorder>
+  <zorder>s_hexa_Initialised_17</zorder>
+  <zorder>s_hexa_Initialised_4</zorder>
+  <zorder>s_hexa_Initialised_18</zorder>
+  <zorder>s_hexa_Initialised_19</zorder>
+  <zorder>s_hexa_Initialised_20</zorder>
+  <zorder>s_hexa_Initialised_8</zorder>
+  <zorder>s_hexa_Initialised_21</zorder>
+  <zorder>s_hexa_Initialised_22</zorder>
+  <zorder>s_hexa_Initialised_23</zorder>
+  <zorder>s_hexa_Initialised_24</zorder>
+  <zorder>s_hexa_Initialised_25</zorder>
+  <zorder>s_hexa_Initialised_26</zorder>
+  <zorder>s_hexa_Initialised_27</zorder>
+  <zorder>s_hexa_Initialised_28</zorder>
+  <zorder>s_hexa_Initialised_29</zorder>
+  <zorder>s_hexa_Initialised_30</zorder>
+  <zorder>s_hexa_Initialised_31</zorder>
+  <zorder>s_hexa_Initialised_32</zorder>
+  <zorder>s_hexa_Initialised_33</zorder>
+  <zorder>s_hexa_Initialised_34</zorder>
+  <zorder>s_hexa_Initialised_35</zorder>
+  <zorder>s_hexa_Initialised_36</zorder>
+  <zorder>s_hexa_Initialised_37</zorder>
+  <zorder>s_hexa_Initialised_38</zorder>
+  <zorder>s_hexa_Initialised_39</zorder>
+  <zorder>s_hexa_Initialised_40</zorder>
+  <zorder>s_hexa_Initialised_41</zorder>
+  <zorder>s_hexa_Initialised_42</zorder>
+  <zorder>s_hexa_Initialised_43</zorder>
+  <zorder>s_hexa_Initialised_44</zorder>
+  <zorder>s_hexa_Initialised_45</zorder>
+  <zorder>s_hexa_Initialised_46</zorder>
+  <zorder>s_hexa_Initialised_47</zorder>
+  <zorder>s_hexa_Initialised_48</zorder>
+  <zorder>s_hexa_Initialised_49</zorder>
+  <zorder>s_hexa_Initialised_50</zorder>
+  <zorder>s_hexa_Initialised_51</zorder>
+  <zorder>s_hexa_Initialised_52</zorder>
+  <zorder>s_hexa_Initialised_53</zorder>
+  <zorder>s_hexa_Initialised_54</zorder>
+  <zorder>s_hexa_Initialised_55</zorder>
+  <zorder>s_hexa_Initialised_56</zorder>
+  <zorder>s_hexa_Initialised_57</zorder>
+  <zorder>s_hexa_Initialised_58</zorder>
+  <zorder>s_hexa_Initialised_59</zorder>
+  <zorder>s_hexa_Initialised_60</zorder>
+  <zorder>s_hexa_Initialised_61</zorder>
+  <zorder>s_hexa_Initialised_62</zorder>
+  <zorder>s_hexa_Initialised_63</zorder>
+  <zorder>s_hexa_Initialised_64</zorder>
+  <zorder>s_hexa_Initialised_65</zorder>
+  <zorder>s_hexa_Initialised_66</zorder>
+  <zorder>s_hexa_Initialised_67</zorder>
+  <zorder>s_hexa_Initialised_68</zorder>
+  <zorder>s_hexa_Initialised_69</zorder>
+  <zorder>s_hexa_Initialised_70</zorder>
+  <zorder>s_hexa_Initialised_71</zorder>
+  <zorder>s_hexa_Initialised_72</zorder>
+  <zorder>s_hexa_Initialised_73</zorder>
+  <zorder>s_hexa_Initialised_74</zorder>
+  <zorder>s_hexa_Initialised_75</zorder>
+  <zorder>s_hexa_Initialised_76</zorder>
+  <zorder>s_hexa_Initialised_77</zorder>
+  <zorder>s_hexa_Initialised_78</zorder>
+  <zorder>s_hexa_Initialised_79</zorder>
+  <zorder>s_hexa_Initialised_80</zorder>
+  <zorder>s_hexa_Initialised_81</zorder>
+  <zorder>s_hexa_Initialised_82</zorder>
+  <zorder>s_hexa_Initialised_83</zorder>
+  <zorder>s_hexa_Initialised_84</zorder>
+  <zorder>s_hexa_Initialised_85</zorder>
+  <zorder>s_hexa_Initialised_86</zorder>
+  <zorder>s_hexa_Initialised_87</zorder>
+  <zorder>s_hexa_Initialised_88</zorder>
+  <zorder>s_hexa_Initialised_89</zorder>
+  <zorder>s_hexa_Initialised_90</zorder>
+  <zorder>PyDMFrame_3</zorder>
+  <zorder>label_3</zorder>
+  <zorder>PyDMRelatedDisplayButton_4</zorder>
+  <zorder>label_5</zorder>
+  <zorder>line</zorder>
+  <zorder>PyDMLabel_3</zorder>
+  <zorder>PyDMLabel_17</zorder>
+  <zorder>PyDMLabel_18</zorder>
+  <zorder>PyDMLabel_19</zorder>
+  <zorder>PyDMLabel_20</zorder>
+  <zorder>PyDMLabel_21</zorder>
+  <zorder>PyDMLabel_22</zorder>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMByteIndicator</class>
+   <extends>QWidget</extends>
+   <header>pydm.widgets.byte</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMFrame</class>
+   <extends>QFrame</extends>
+   <header>pydm.widgets.frame</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PyDMRelatedDisplayButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.related_display_button</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

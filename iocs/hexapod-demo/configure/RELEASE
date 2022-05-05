@@ -1,0 +1,13 @@
+# TODO edit this file to reflect your site dependencies locations
+
+SUPPORT = /home/epics/R3.15.7/support
+# Module definitions
+ASYN = $(SUPPORT)/asyn/4-38
+BUSY = $(SUPPORT)/busy/1-7-2
+CALC = $(SUPPORT)/calc/3-7-4
+MOTOR = $(SUPPORT)/motor/6-10
+PMAC = $(SUPPORT)/pmac/2-4-10
+SYMETRIE = $(SUPPORT)/symetrie
+# EPICS Base appears last
+EPICS_BASE = /home/epics/R3.15.7/base
+

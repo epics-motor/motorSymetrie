@@ -1,0 +1,3115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="PyDMFrame" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>770</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Advanced states</string>
+  </property>
+  <property name="toolTip">
+   <string/>
+  </property>
+  <property name="whatsThis">
+   <string>
+    QFrame with support for alarms
+    This class inherits from QFrame and PyDMWidget.
+
+    Parameters
+    ----------
+    parent : QWidget
+        The parent widget for the Label
+    init_channel : str, optional
+        The channel to be used by the widget.
+    </string>
+  </property>
+  <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_3">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>10</y>
+     <width>101</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/icons8_Error_32px.png</normaloff>icons/icons8_Error_32px.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>100</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_4">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>100</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Error code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_34">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>120</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:0:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_35">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>120</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:0:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_29">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:0:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_4">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>101</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/Survey_32px.png</normaloff>icons/Survey_32px.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+   <property name="filenames" stdset="0">
+    <string>SymetrieAdvancedGeneral.ui</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>General</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>60</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Actuator</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="PyDMRelatedDisplayButton" name="PyDMRelatedDisplayButton_5">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>10</y>
+     <width>101</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string>
+    A QPushButton capable of opening a new Display at the same of at a
+    new window.
+
+    Parameters
+    ----------
+    init_channel : str, optional
+        The channel to be used by the widget.
+
+    filename : str, optional
+        The file to be opened
+    </string>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>icons/Gears_32px.png</normaloff>icons/Gears_32px.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+   <property name="filenames" stdset="0">
+    <string>SymetrieAdvancedActuator.ui</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>60</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Error</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>80</y>
+     <width>701</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_38">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>153</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:1:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_39">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>153</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:1:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_40">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>153</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:1:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_41">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>186</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:2:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_42">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>186</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:2:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_43">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>186</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:2:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_44">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>219</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:3:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_45">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>219</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:3:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_46">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>219</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:3:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_47">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>252</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:4:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_48">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>252</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:4:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_49">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>252</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:4:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_30">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>285</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:5:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_52">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>384</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:8:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_36">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>285</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:5:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_37">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>285</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:5:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_58">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>318</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:6:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_61">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>416</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:9:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_63">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>480</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:11:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_64">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>544</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:13:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_67">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>512</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:12:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_71">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>448</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:10:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_75">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>576</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:14:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_77">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>640</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:16:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_78">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>704</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:18:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_81">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>672</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:17:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_85">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>608</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:15:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_89">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>736</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:19:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_53">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>318</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:6:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_55">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>350</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:7:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_59">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>350</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:7:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_60">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>383</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:8:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_62">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>416</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:9:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_65">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>448</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:10:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_66">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>480</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:11:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_68">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>512</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:12:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_69">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>544</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:13:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_70">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>576</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:14:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_72">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>608</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:15:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_73">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>640</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:16:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_74">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>672</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:17:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_76">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>704</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:18:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_79">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>736</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>2</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:19:Time</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_56">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>383</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:8:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_57">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>416</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:9:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_80">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>448</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:10:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_82">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>480</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:11:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_83">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>512</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:12:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_84">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>544</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:13:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_86">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>576</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:14:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_87">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>608</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:15:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_88">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>640</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:16:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_90">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>672</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:17:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_91">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>704</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:18:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_92">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>736</y>
+     <width>91</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>0</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}ERR_INFO:19:Code</string>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_50">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>318</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:6:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_51">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>350</y>
+     <width>501</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Sunken</enum>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <property name="alarmSensitiveBorder" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precisionFromPV" stdset="0">
+    <bool>false</bool>
+   </property>
+   <property name="precision" stdset="0">
+    <number>4</number>
+   </property>
+   <property name="showUnits" stdset="0">
+    <bool>true</bool>
+   </property>
+   <property name="channel" stdset="0">
+    <string>ca://${P}${R}Drv:7:ErrorDescription_RBV</string>
+   </property>
+   <property name="displayFormat" stdset="0">
+    <enum>PyDMLabel::String</enum>
+   </property>
+  </widget>
+  <widget class="PyDMLabel" name="PyDMLabel_5">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>100</y>
+     <width>498</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string/>
+   </property>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="text">
+    <string>Error description</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>PyDMLabel_52</zorder>
+  <zorder>PyDMRelatedDisplayButton_3</zorder>
+  <zorder>PyDMLabel_6</zorder>
+  <zorder>PyDMLabel_4</zorder>
+  <zorder>PyDMLabel_35</zorder>
+  <zorder>PyDMRelatedDisplayButton_4</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label</zorder>
+  <zorder>PyDMRelatedDisplayButton_5</zorder>
+  <zorder>label_3</zorder>
+  <zorder>line</zorder>
+  <zorder>PyDMLabel_40</zorder>
+  <zorder>PyDMLabel_43</zorder>
+  <zorder>PyDMLabel_46</zorder>
+  <zorder>PyDMLabel_49</zorder>
+  <zorder>PyDMLabel_37</zorder>
+  <zorder>PyDMLabel_50</zorder>
+  <zorder>PyDMLabel_51</zorder>
+  <zorder>PyDMLabel_61</zorder>
+  <zorder>PyDMLabel_71</zorder>
+  <zorder>PyDMLabel_63</zorder>
+  <zorder>PyDMLabel_67</zorder>
+  <zorder>PyDMLabel_64</zorder>
+  <zorder>PyDMLabel_75</zorder>
+  <zorder>PyDMLabel_85</zorder>
+  <zorder>PyDMLabel_77</zorder>
+  <zorder>PyDMLabel_81</zorder>
+  <zorder>PyDMLabel_78</zorder>
+  <zorder>PyDMLabel_89</zorder>
+  <zorder>PyDMLabel_34</zorder>
+  <zorder>PyDMLabel_39</zorder>
+  <zorder>PyDMLabel_42</zorder>
+  <zorder>PyDMLabel_45</zorder>
+  <zorder>PyDMLabel_48</zorder>
+  <zorder>PyDMLabel_36</zorder>
+  <zorder>PyDMLabel_53</zorder>
+  <zorder>PyDMLabel_55</zorder>
+  <zorder>PyDMLabel_56</zorder>
+  <zorder>PyDMLabel_57</zorder>
+  <zorder>PyDMLabel_80</zorder>
+  <zorder>PyDMLabel_82</zorder>
+  <zorder>PyDMLabel_83</zorder>
+  <zorder>PyDMLabel_84</zorder>
+  <zorder>PyDMLabel_86</zorder>
+  <zorder>PyDMLabel_87</zorder>
+  <zorder>PyDMLabel_88</zorder>
+  <zorder>PyDMLabel_90</zorder>
+  <zorder>PyDMLabel_91</zorder>
+  <zorder>PyDMLabel_92</zorder>
+  <zorder>PyDMLabel_29</zorder>
+  <zorder>PyDMLabel_38</zorder>
+  <zorder>PyDMLabel_41</zorder>
+  <zorder>PyDMLabel_44</zorder>
+  <zorder>PyDMLabel_47</zorder>
+  <zorder>PyDMLabel_30</zorder>
+  <zorder>PyDMLabel_58</zorder>
+  <zorder>PyDMLabel_59</zorder>
+  <zorder>PyDMLabel_60</zorder>
+  <zorder>PyDMLabel_62</zorder>
+  <zorder>PyDMLabel_65</zorder>
+  <zorder>PyDMLabel_66</zorder>
+  <zorder>PyDMLabel_68</zorder>
+  <zorder>PyDMLabel_69</zorder>
+  <zorder>PyDMLabel_70</zorder>
+  <zorder>PyDMLabel_72</zorder>
+  <zorder>PyDMLabel_73</zorder>
+  <zorder>PyDMLabel_74</zorder>
+  <zorder>PyDMLabel_76</zorder>
+  <zorder>PyDMLabel_79</zorder>
+  <zorder>PyDMLabel_5</zorder>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMLabel</class>
+   <extends>QLabel</extends>
+   <header>pydm.widgets.label</header>
+  </customwidget>
+  <customwidget>
+   <class>PyDMFrame</class>
+   <extends>QFrame</extends>
+   <header>pydm.widgets.frame</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PyDMRelatedDisplayButton</class>
+   <extends>QPushButton</extends>
+   <header>pydm.widgets.related_display_button</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

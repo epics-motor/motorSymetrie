@@ -1,0 +1,16 @@
+To run these tests the following instructions can be followed.
+
+These tests are expected to be executed against the example IOC
+which is connected to a simulated hexapod controller.
+
+Python is assumed to be installed and on the PATH.
+
+python3 -m venv venv3
+source venv3/bin/activate
+pip install --upgrade pip
+pip install --upgrade virtualenv
+pip install pyepics
+pip install pytest
+
+pytest
+

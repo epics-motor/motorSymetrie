@@ -1,0 +1,112 @@
+##############################################################
+#
+# Records to read the status of a Symetrie Hexapod axis
+#
+##############################################################
+
+# PORT, The asyn port for the pmac controller
+# P, PV Prefix
+# R, PV Device Name
+# AXIS, Axis Number (1 to 6)
+
+##############################################################
+#
+# Axis Status Records
+#
+##############################################################
+
+record(longin, "$(P)$(R)s_ax_$(AXIS)_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_AX_$(AXIS)")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):Error_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&1")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):ControlOn_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&2>>1")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):InPosition_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&4>>2")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):MotionTaskRunning_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&8>>3")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):HomeTaskRunning_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&16>>4")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):HomeComplete_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&32>>5")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):PhaseFound_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&64>>6")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):BrakeOn_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&128>>7")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):HomeHardwareInput_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&256>>8")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):NegativeLimitSwitch_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&512>>9")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):PositiveLimitSwitch_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&1024>>10")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):SoftwareLimit_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&2048>>11")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):FollowingError_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&4096>>12")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):DriveFault_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&8192>>13")
+}
+
+record(calcout, "$(P)$(R)s_ax_$(AXIS):EncoderError_RBV") {
+  field(INPA, "$(P)$(R)s_ax_$(AXIS)_RBV CP")
+  field(CALC, "A&16384>>14")
+}
+
+##############################################################
+#
+# Hexapod Actuator Position Readback Record
+#
+##############################################################
+
+record(ai, "$(P)$(R)s_pos_ax_$(AXIS)_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_POS_AX_$(AXIS)")
+  field(EGU, "mm")
+}
+
+

@@ -1,0 +1,319 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 880
+y 75
+w 701
+h 788
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-18.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 0
+textColor index 14
+ctlFgColor1 index 14
+ctlFgColor2 index 0
+ctlBgColor1 index 0
+ctlBgColor2 index 14
+topShadowColor index 0
+botShadowColor index 14
+title "Advanced states"
+showGrid
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 15
+w 75
+h 60
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 15
+y 15
+w 75
+h 60
+fgColor index 14
+onColor index 0
+offColor index 0
+topShadowColor index 0
+botShadowColor index 14
+controlPv "LOC\\$(!W)tab=e:0,General,Actuator,Error"
+pressValue "General"
+invisible
+font "helvetica-medium-r-18.0"
+endObjectProperties
+
+# (PNG Image)
+object activePngClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 35
+y 25
+w 32
+h 32
+file "./Survey_32px.png"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 15
+y 55
+w 75
+h 16
+font "helvetica-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "General"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 170
+y 15
+w 75
+h 60
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 170
+y 15
+w 75
+h 60
+fgColor index 14
+onColor index 0
+offColor index 0
+topShadowColor index 0
+botShadowColor index 14
+controlPv "LOC\\$(!W)tab=e:0,General,Actuator,Error"
+pressValue "Actuator"
+invisible
+font "helvetica-medium-r-18.0"
+endObjectProperties
+
+# (PNG Image)
+object activePngClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 190
+y 25
+w 32
+h 32
+file "./Gears_32px.png"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 170
+y 55
+w 75
+h 16
+font "helvetica-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Actuator"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 15
+w 75
+h 60
+
+beginGroup
+
+# (Message Button)
+object activeMessageButtonClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 325
+y 15
+w 75
+h 60
+fgColor index 14
+onColor index 0
+offColor index 0
+topShadowColor index 0
+botShadowColor index 14
+controlPv "LOC\\$(!W)tab=e:0,General,Actuator,Error"
+pressValue "Error"
+invisible
+font "helvetica-medium-r-18.0"
+endObjectProperties
+
+# (PNG Image)
+object activePngClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 345
+y 25
+w 32
+h 32
+file "./icons8_Error_32px.png"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 325
+y 55
+w 75
+h 16
+font "helvetica-bold-r-14.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Error"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 0
+y 85
+w 700
+h 0
+lineColor index 14
+fillColor index 0
+numPoints 2
+xPoints {
+  0 0
+  1 700
+}
+yPoints {
+  0 85
+  1 85
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 1
+x 6
+y 96
+w 682
+h 676
+lineColor index 1
+fillColor index 0
+numPoints 3
+xPoints {
+  0 6
+  1 688
+  2 688
+}
+yPoints {
+  0 772
+  1 772
+  2 96
+}
+endObjectProperties
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 95
+w 679
+h 675
+fgColor index 14
+bgColor index 3
+topShadowColor index 0
+botShadowColor index 0
+displaySource "menu"
+filePv "LOC\\$(!W)tab"
+sizeOfs 5
+numDsps 3
+displayFileName {
+  0 "SymetrieAdvancedGeneral.edl"
+  1 "SymetrieAdvancedActuator.edl"
+  2 "SymetrieAdvancedError.edl"
+}
+symbols {
+  0 "label=OD"
+  1 "label=CAM"
+  2 "label=PVA"
+}
+noScroll
+endObjectProperties
+

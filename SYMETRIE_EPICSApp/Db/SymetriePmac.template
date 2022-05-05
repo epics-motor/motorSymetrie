@@ -1,0 +1,2340 @@
+##############################################################
+#
+# Records to read and write commands and status for the
+# Symetrie Hexapod running on a PowerPMAC using the pmac
+# module for device support.
+#
+# The Asyn address is set as zero because that's what we use 
+# for controller parameters.
+# 
+##############################################################
+
+# PORT, The asyn port for the pmac controller
+# P, PV Prefix
+# R, PV Device Name
+
+##############################################################
+#
+# Hexapod Version Information
+#
+##############################################################
+
+record(longin, "$(P)$(R)VERSION:ControllerSoftwareID_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VERS_CTRL_ID")
+}
+
+record(stringin, "$(P)$(R)VERSION:ControllerSoftwareVersion_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VERS_CTRL_VER")
+}
+
+record(stringin, "$(P)$(R)VERSION:APISoftwareVersion_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VERS_API_VER")
+}
+
+record(longin, "$(P)$(R)VERSION:SystemID_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VERS_SYS_ID")
+}
+
+record(longin, "$(P)$(R)VERSION:SystemNum_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VERS_SYS_NUM")
+}
+
+record(longin, "$(P)$(R)VERSION:SystemCfgVersion_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VERS_SYS_CFG")
+}
+
+##############################################################
+#
+# Hexapod Command Response Records
+#
+##############################################################
+
+record(longin, "$(P)$(R)Drv:CmdReturnCode_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CMD_CODE")
+}
+
+record(waveform, "$(P)$(R)Drv:CmdReturnDescription_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(SCAN, "I/O Intr")
+  field(FTVL, "CHAR")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CMD_DESC")
+  field(NELM, "2048")
+}
+
+##############################################################
+#
+# Hexapod Status Update Record
+#
+##############################################################
+
+record(longout, "$(P)$(R)STATUS_GET") {
+  field(DTYP, "asynInt32")
+  field(SCAN, ".5 second")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_STATUS_READ")
+}
+
+##############################################################
+#
+# Hexapod Status Records
+#
+##############################################################
+
+record(longin, "$(P)$(R)s_hexa_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_HEXA")
+}
+
+record(calcout, "$(P)$(R)s_hexa:Error_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&1")
+}
+
+record(calcout, "$(P)$(R)s_hexa:Initialised_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&2>>1")
+}
+
+record(calcout, "$(P)$(R)s_hexa:ControlOn_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&4>>2")
+}
+
+record(calcout, "$(P)$(R)s_hexa:InPosition_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&8>>3")
+}
+
+record(calcout, "$(P)$(R)s_hexa:MotionTaskRunning_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&16>>4")
+}
+
+record(calcout, "$(P)$(R)s_hexa:HomeTaskRunning_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&32>>5")
+}
+
+record(calcout, "$(P)$(R)s_hexa:HomeComplete_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&64>>6")
+}
+
+record(calcout, "$(P)$(R)s_hexa:HomeVirtual_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&128>>7")
+}
+
+record(calcout, "$(P)$(R)s_hexa:PhaseFound_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&256>>8")
+}
+
+record(calcout, "$(P)$(R)s_hexa:BrakeOn_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&512>>9")
+}
+
+record(calcout, "$(P)$(R)s_hexa:MotionRestricted_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&1024>>10")
+}
+
+record(calcout, "$(P)$(R)s_hexa:PowerOnEncoders_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&2048>>11")
+}
+
+record(calcout, "$(P)$(R)s_hexa:PowerOnLimits_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&4096>>12")
+}
+
+record(calcout, "$(P)$(R)s_hexa:PowerOnDrives_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&8192>>13")
+}
+
+record(calcout, "$(P)$(R)s_hexa:EmergencyStop_RBV") {
+  field(INPA, "$(P)$(R)s_hexa_RBV CP")
+  field(CALC, "A&16384>>14")
+}
+
+##############################################################
+#
+# Hexapod GPIO Records
+#
+##############################################################
+
+record(longin, "$(P)$(R)s_dio_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_DIO_1")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO1:Input1_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&1")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO1:Output1_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&2>>1")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO1:Output2_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&4>>2")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO2:Input1_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&8>>3")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO2:Input2_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&16>>4")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO2:Input3_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&32>>5")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO2:Input4_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&64>>6")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO2:Input5_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&128>>7")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO2:Input6_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&256>>8")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO2:Input7_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&1024>>9")
+}
+
+record(calcout, "$(P)$(R)s_dio:GPIO2:Input8_RBV") {
+  field(INPA, "$(P)$(R)s_dio_RBV CP")
+  field(CALC, "A&2048>>10")
+}
+
+
+##############################################################
+#
+# Hexapod AI Records
+#
+##############################################################
+
+record(ai, "$(P)$(R)s_ai_1_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_AI_1")
+}
+
+record(ai, "$(P)$(R)s_ai_2_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_AI_2")
+}
+
+record(ai, "$(P)$(R)s_ai_3_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_AI_3")
+}
+
+record(ai, "$(P)$(R)s_ai_4_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_AI_4")
+}
+
+record(ai, "$(P)$(R)s_ai_5_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_AI_5")
+}
+
+record(ai, "$(P)$(R)s_ai_6_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_AI_6")
+}
+
+record(ai, "$(P)$(R)s_ai_7_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_AI_7")
+}
+
+record(ai, "$(P)$(R)s_ai_8_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_AI_8")
+}
+
+##############################################################
+#
+# Hexapod Cycle Readback Record
+#
+##############################################################
+
+record(longin, "$(P)$(R)s_cycle_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_CYCLE")
+}
+
+##############################################################
+#
+# Hexapod Index Readback Record
+#
+##############################################################
+
+record(longin, "$(P)$(R)s_index_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_INDEX")
+}
+
+##############################################################
+#
+# Hexapod User Position Readback Records
+#
+##############################################################
+
+record(ai, "$(P)$(R)s_uto_tx_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_TX")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)s_uto_ty_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_TY")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)s_uto_tz_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_TZ")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)s_uto_rx_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_RX")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)s_uto_ry_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_RY")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)s_uto_rz_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_RZ")
+  field(EGU, "deg")
+}
+
+
+##############################################################
+#
+# Hexapod Machine Position Readback Records
+#
+##############################################################
+
+record(ai, "$(P)$(R)s_mtp_tx_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_TX")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)s_mtp_ty_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_TY")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)s_mtp_tz_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_TZ")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)s_mtp_rx_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_RX")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)s_mtp_ry_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_RY")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)s_mtp_rz_RBV") {
+  field(DTYP, "asynFloat64")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_RZ")
+  field(EGU, "deg")
+}
+
+
+##############################################################
+#
+# Hexapod Current Error Number
+#
+##############################################################
+
+record(longin, "$(P)$(R)s_err_nr_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_ERR_NR")
+}
+
+##############################################################
+#
+# Hexapod Current Executing Task
+#
+##############################################################
+
+record(mbbi, "$(P)$(R)s_action_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_S_ACTION")
+  field(ZRST, "None")
+  field(ONST, "Stop")
+  field(TWST, "ControlOn")
+  field(THST, "ControlOff")
+  field(FRST, "Home")
+  field(FVST, "HomeVirtual")
+  field(SXST, "MovePTP")
+  field(SVST, "MoveSpecificPos")
+  field(EIST, "MoveSequence")
+  field(NIST, "MoveJog")
+  field(TEST, "Handwheel")
+  field(ELST, "Maintenance")
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(THVL, "3")
+  field(FRVL, "4")
+  field(FVVL, "5")
+  field(SXVL, "6")
+  field(SVVL, "7")
+  field(EIVL, "8")
+  field(NIVL, "9")
+  field(TEVL, "10")
+  field(ELVL, "11")
+}
+
+
+##############################################################
+#
+# Hexapod General Command Records
+#
+##############################################################
+
+record(longout, "$(P)$(R)STOP") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_STOP")
+}
+
+record(longout, "$(P)$(R)CONTROLON") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CONTROLON")
+}
+
+record(longout, "$(P)$(R)CONTROLOFF") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CONTROLOFF")
+}
+
+record(longout, "$(P)$(R)HOME") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_HOME")
+}
+
+record(longout, "$(P)$(R)HOMEVIRTUAL") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_HOMEVIRTUAL")
+}
+
+record(longout, "$(P)$(R)CLEARERROR") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CLEARERROR")
+}
+
+##############################################################
+#
+# Hexapod Move Command Records
+#
+##############################################################
+
+record(mbbo, "$(P)$(R)MOVE_PTP:MoveType") {
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(ZRST, "ABSOLUTE")
+  field(ONST, "OBJECT RELATIVE")
+  field(TWST, "USER RELATIVE")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_TYPE")
+  field(PINI, "YES")
+  field(FLNK, "$(P)$(R)Drv:ValidateMove:CopyAndExecute")
+}
+
+record(longout, "$(P)$(R)MOVE_PTP") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE")
+}
+
+record(ao, "$(P)$(R)MOVE_PTP:Tx") {
+  field(EGU, "mm")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_TX_DMD")
+  field(PINI, "YES")
+  field(FLNK, "$(P)$(R)Drv:ValidateMove:CopyAndExecute")
+}
+
+record(ao, "$(P)$(R)MOVE_PTP:Ty") {
+  field(EGU, "mm")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_TY_DMD")
+  field(PINI, "YES")
+  field(FLNK, "$(P)$(R)Drv:ValidateMove:CopyAndExecute")
+}
+
+record(ao, "$(P)$(R)MOVE_PTP:Tz") {
+  field(EGU, "mm")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_TZ_DMD")
+  field(PINI, "YES")
+  field(FLNK, "$(P)$(R)Drv:ValidateMove:CopyAndExecute")
+}
+
+record(ao, "$(P)$(R)MOVE_PTP:Rx") {
+  field(EGU, "deg")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_RX_DMD")
+  field(PINI, "YES")
+  field(FLNK, "$(P)$(R)Drv:ValidateMove:CopyAndExecute")
+}
+
+record(ao, "$(P)$(R)MOVE_PTP:Ry") {
+  field(EGU, "deg")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_RY_DMD")
+  field(PINI, "YES")
+  field(FLNK, "$(P)$(R)Drv:ValidateMove:CopyAndExecute")
+}
+
+record(ao, "$(P)$(R)MOVE_PTP:Rz") {
+  field(EGU, "deg")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_RZ_DMD")
+  field(PINI, "YES")
+  field(FLNK, "$(P)$(R)Drv:ValidateMove:CopyAndExecute")
+}
+
+##############################################################
+#
+# Hexapod Validate The Current Move
+#
+# These records will copy the current demands into the
+# validation records and then execute the validation check
+##############################################################
+
+record(calcout, "$(P)$(R)Drv:ValidateMove:DetectAndExecute") {
+  field(INPA, "$(P)$(R)MOVE_PTP:Tx CP")
+  field(INPB, "$(P)$(R)MOVE_PTP:Ty CP")
+  field(INPC, "$(P)$(R)MOVE_PTP:Tz CP")
+  field(INPD, "$(P)$(R)MOVE_PTP:Rx CP")
+  field(INPE, "$(P)$(R)MOVE_PTP:Ry CP")
+  field(INPF, "$(P)$(R)MOVE_PTP:Rz CP")
+  field(INPG, "$(P)$(R)MOVE_PTP:MoveType CP")
+  field(CALC, "1")
+  field(OUT, "$(P)$(R)Drv:ValidateMove:CopyAndExecute.PROC PP")
+}
+
+record(calcout, "$(P)$(R)Drv:ValidateMove:Valid_RBV") {
+  field(INPA, "$(P)$(R)VALID_PTP:Result_RBV CP")
+  field(CALC, "A>0?1:0")
+}
+
+record(seq, "$(P)$(R)Drv:ValidateMove:CopyAndExecute") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)MOVE_PTP:Tx")
+  field(LNK1, "$(P)$(R)VALID_PTP:Tx PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)MOVE_PTP:Ty")
+  field(LNK2, "$(P)$(R)VALID_PTP:Ty PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)MOVE_PTP:Tz")
+  field(LNK3, "$(P)$(R)VALID_PTP:Tz PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)MOVE_PTP:Rx")
+  field(LNK4, "$(P)$(R)VALID_PTP:Rx PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)MOVE_PTP:Ry")
+  field(LNK5, "$(P)$(R)VALID_PTP:Ry PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)MOVE_PTP:Rz")
+  field(LNK6, "$(P)$(R)VALID_PTP:Rz PP")
+  field(DLY6, "0.0")
+  field(DOL7, "CURRENT POSITION")
+  field(LNK7, "$(P)$(R)VALID_PTP:ValidationMode PP")
+  field(DLY7, "0.0")
+  field(DOL8, "$(P)$(R)MOVE_PTP:MoveType")
+  field(LNK8, "$(P)$(R)VALID_PTP:MoveType PP")
+  field(DLY8, "0.0")
+  field(DOL9, "1")
+  field(LNK9, "$(P)$(R)VALID_PTP.PROC PP")
+  field(DLY9, "0.0")
+}
+
+
+##############################################################
+#
+# Hexapod Validate Move Command Records
+#
+##############################################################
+
+record(mbbo, "$(P)$(R)VALID_PTP:ValidationMode") {
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(ZRST, "CURRENT POSITION")
+  field(ONST, "START POSITION")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_MODE")
+  field(PINI, "YES")
+}
+
+record(mbbo, "$(P)$(R)VALID_PTP:MoveType") {
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(ZRST, "ABSOLUTE")
+  field(ONST, "OBJECT RELATIVE")
+  field(TWST, "USER RELATIVE")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_TYPE")
+  field(PINI, "YES")
+}
+
+record(longout, "$(P)$(R)VALID_PTP") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP")
+}
+
+record(longin, "$(P)$(R)VALID_PTP:Result_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_RESULT")
+}
+
+record(ao, "$(P)$(R)VALID_PTP:Tx") {
+  field(EGU, "mm")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_TX")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)VALID_PTP:Ty") {
+  field(EGU, "mm")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_TY")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)VALID_PTP:Tz") {
+  field(EGU, "mm")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_TZ")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)VALID_PTP:Rx") {
+  field(EGU, "deg")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_RX")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)VALID_PTP:Ry") {
+  field(EGU, "deg")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_RY")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)VALID_PTP:Rz") {
+  field(EGU, "deg")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_RZ")
+  field(PINI, "YES")
+}
+
+##############################################################
+#
+# Hexapod Power Command
+#
+##############################################################
+
+record(bo, "$(P)$(R)POWER:Power") {
+  field(ZNAM, "Off")
+  field(ONAM, "On")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_POWER_POWER")
+}
+
+record(longout, "$(P)$(R)POWER") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_POWER")
+  field(PINI, "NO")
+}
+
+##############################################################
+#
+# Hexapod Maintenance Command
+#
+##############################################################
+
+record(mbbo, "$(P)$(R)MAINTENANCE:Mode") {
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(ZRST, "Jog to zero")
+  field(ONST, "Move single")
+  field(TWST, "Move all")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MAINTENANCE_MODE")
+}
+
+record(mbbo, "$(P)$(R)MAINTENANCE:Axis") {
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(THVL, "4")
+  field(FRVL, "5")
+  field(FVVL, "6")
+  field(ZRST, "On X")
+  field(ONST, "On Y")
+  field(TWST, "On Z")
+  field(THST, "Around X")
+  field(FRST, "Around Y")
+  field(FVST, "Around Z")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MAINTENANCE_AXIS")
+}
+
+record(longout, "$(P)$(R)MAINTENANCE") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MAINTENANCE")
+  field(PINI, "NO")
+}
+
+##############################################################
+#
+# Hexapod Jog Command
+#
+##############################################################
+
+record(longout, "$(P)$(R)AXIS_JOG:Axis") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_JOG_AXIS")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)AXIS_JOG:Increment") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_JOG_INCR")
+  field(PINI, "YES")
+}
+
+record(longout, "$(P)$(R)AXIS_JOG") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_JOG")
+  field(PINI, "NO")
+}
+
+##############################################################
+#
+# Hexapod Reboot Command
+#
+##############################################################
+
+record(longout, "$(P)$(R)REBOOT") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_REBOOT")
+  field(PINI, "NO")
+}
+
+##############################################################
+#
+# Hexapod Terminal Command
+#
+##############################################################
+
+record(stringout, "$(P)$(R)TERMINAL:String") {
+  field(DTYP, "asynOctetWrite")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TERMINAL_SEND")
+}
+
+record(stringin, "$(P)$(R)TERMINAL:String_RBV") {
+  field(DTYP, "asynOctetRead")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TERMINAL_RECV")
+}
+
+##############################################################
+#
+# Hexapod Move to Specific Position
+#
+##############################################################
+
+record(mbbo, "$(P)$(R)MOVE_SPECIFICPOS:Index") {
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(ZRST, "USER ZERO")
+  field(ONST, "RETRACTED")
+  field(TWST, "MACHINE ZERO")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_SPC_MOVE_DMD")
+  field(PINI, "YES")
+}
+
+record(longout, "$(P)$(R)MOVE_SPECIFICPOS") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_SPC_MOVE")
+  field(PINI, "NO")
+}
+
+##############################################################
+#
+# Hexapod Move to Specific Position
+#
+##############################################################
+
+record(longout, "$(P)$(R)MOVE_SEQ") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_SEQ")
+  field(PINI, "NO")
+}
+
+##############################################################
+#
+# Hexapod Config Set Command Records
+#
+##############################################################
+record(longout, "$(P)$(R)CFG_SAFETYINPUT:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_SAFETY_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_CHANNEL:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CHANNEL_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_SPEED:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_SPEED_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_TA:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TA_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_CS:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CS_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_LIMIT:Machine:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_LIMITENABLE:Machine:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_ENABLE_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_LIMIT:User:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_LIMITENABLE:User:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_ENABLE_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_CONTROL:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CONTROL_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_STALLCURRENT:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_STALL_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_BACKLASH:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_BKL_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_KIN:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_KIN_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_TUNING:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TUNING_SET")
+  field(PINI, "NO")
+}
+
+record(longout, "$(P)$(R)CFG_POWER:Set") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CFG_POWER_SET")
+  field(PINI, "NO")
+}
+
+##############################################################
+#
+# Hexapod Config Reset Demand Records
+#
+##############################################################
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd") {
+  field(PINI, "YES")
+  field(DOL1, "1")
+  field(LNK1, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub01.PROC PP")
+  field(DLY1, "1.0")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub01") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_SPEED:Trans_RBV")
+  field(LNK1, "$(P)$(R)CFG_SPEED:Trans PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_SPEED:Rot_RBV")
+  field(LNK2, "$(P)$(R)CFG_SPEED:Rot PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_TA:Value_RBV")
+  field(LNK3, "$(P)$(R)CFG_TA:Value PP")
+  field(DLY3, "0.0")
+  field(FLNK, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub02")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub02") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_CS:Txu_RBV")
+  field(LNK1, "$(P)$(R)CFG_CS:Txu PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_CS:Tyu_RBV")
+  field(LNK2, "$(P)$(R)CFG_CS:Tyu PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_CS:Tzu_RBV")
+  field(LNK3, "$(P)$(R)CFG_CS:Tzu PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_CS:Rxu_RBV")
+  field(LNK4, "$(P)$(R)CFG_CS:Rxu PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)CFG_CS:Ryu_RBV")
+  field(LNK5, "$(P)$(R)CFG_CS:Ryu PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)CFG_CS:Rzu_RBV")
+  field(LNK6, "$(P)$(R)CFG_CS:Rzu PP")
+  field(DLY6, "0.0")
+  field(FLNK, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub03")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub03") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_CS:Txo_RBV")
+  field(LNK1, "$(P)$(R)CFG_CS:Txo PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_CS:Tyo_RBV")
+  field(LNK2, "$(P)$(R)CFG_CS:Tyo PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_CS:Tzo_RBV")
+  field(LNK3, "$(P)$(R)CFG_CS:Tzo PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_CS:Rxo_RBV")
+  field(LNK4, "$(P)$(R)CFG_CS:Rxo PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)CFG_CS:Ryo_RBV")
+  field(LNK5, "$(P)$(R)CFG_CS:Ryo PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)CFG_CS:Rzo_RBV")
+  field(LNK6, "$(P)$(R)CFG_CS:Rzo PP")
+  field(DLY6, "0.0")
+  field(FLNK, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub04")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub04") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_LIMIT:Machine_Tx_Neg_RBV")
+  field(LNK1, "$(P)$(R)CFG_LIMIT:Machine_Tx_Neg PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_LIMIT:Machine_Ty_Neg_RBV")
+  field(LNK2, "$(P)$(R)CFG_LIMIT:Machine_Ty_Neg PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_LIMIT:Machine_Tz_Neg_RBV")
+  field(LNK3, "$(P)$(R)CFG_LIMIT:Machine_Tz_Neg PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_LIMIT:Machine_Rx_Neg_RBV")
+  field(LNK4, "$(P)$(R)CFG_LIMIT:Machine_Rx_Neg PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)CFG_LIMIT:Machine_Ry_Neg_RBV")
+  field(LNK5, "$(P)$(R)CFG_LIMIT:Machine_Ry_Neg PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)CFG_LIMIT:Machine_Rz_Neg_RBV")
+  field(LNK6, "$(P)$(R)CFG_LIMIT:Machine_Rz_Neg PP")
+  field(DLY6, "0.0")
+  field(DOL7, "$(P)$(R)CFG_LIMITENABLE:Machine_RBV")
+  field(LNK7, "$(P)$(R)CFG_LIMITENABLE:Machine PP")
+  field(DLY7, "0.0")
+  field(FLNK, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub05")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub05") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_LIMIT:Machine_Tx_Pos_RBV")
+  field(LNK1, "$(P)$(R)CFG_LIMIT:Machine_Tx_Pos PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_LIMIT:Machine_Ty_Pos_RBV")
+  field(LNK2, "$(P)$(R)CFG_LIMIT:Machine_Ty_Pos PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_LIMIT:Machine_Tz_Pos_RBV")
+  field(LNK3, "$(P)$(R)CFG_LIMIT:Machine_Tz_Pos PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_LIMIT:Machine_Rx_Pos_RBV")
+  field(LNK4, "$(P)$(R)CFG_LIMIT:Machine_Rx_Pos PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)CFG_LIMIT:Machine_Ry_Pos_RBV")
+  field(LNK5, "$(P)$(R)CFG_LIMIT:Machine_Ry_Pos PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)CFG_LIMIT:Machine_Rz_Pos_RBV")
+  field(LNK6, "$(P)$(R)CFG_LIMIT:Machine_Rz_Pos PP")
+  field(DLY6, "0.0")
+  field(FLNK, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub06")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub06") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_LIMIT:User_Tx_Neg_RBV")
+  field(LNK1, "$(P)$(R)CFG_LIMIT:User_Tx_Neg PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_LIMIT:User_Ty_Neg_RBV")
+  field(LNK2, "$(P)$(R)CFG_LIMIT:User_Ty_Neg PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_LIMIT:User_Tz_Neg_RBV")
+  field(LNK3, "$(P)$(R)CFG_LIMIT:User_Tz_Neg PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_LIMIT:User_Rx_Neg_RBV")
+  field(LNK4, "$(P)$(R)CFG_LIMIT:User_Rx_Neg PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)CFG_LIMIT:User_Ry_Neg_RBV")
+  field(LNK5, "$(P)$(R)CFG_LIMIT:User_Ry_Neg PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)CFG_LIMIT:User_Rz_Neg_RBV")
+  field(LNK6, "$(P)$(R)CFG_LIMIT:User_Rz_Neg PP")
+  field(DLY6, "0.0")
+  field(DOL7, "$(P)$(R)CFG_LIMITENABLE:User_RBV")
+  field(LNK7, "$(P)$(R)CFG_LIMITENABLE:User PP")
+  field(DLY7, "0.0")
+  field(FLNK, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub07")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub07") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_LIMIT:User_Tx_Pos_RBV")
+  field(LNK1, "$(P)$(R)CFG_LIMIT:User_Tx_Pos PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_LIMIT:User_Ty_Pos_RBV")
+  field(LNK2, "$(P)$(R)CFG_LIMIT:User_Ty_Pos PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_LIMIT:User_Tz_Pos_RBV")
+  field(LNK3, "$(P)$(R)CFG_LIMIT:User_Tz_Pos PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_LIMIT:User_Rx_Pos_RBV")
+  field(LNK4, "$(P)$(R)CFG_LIMIT:User_Rx_Pos PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)CFG_LIMIT:User_Ry_Pos_RBV")
+  field(LNK5, "$(P)$(R)CFG_LIMIT:User_Ry_Pos PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)CFG_LIMIT:User_Rz_Pos_RBV")
+  field(LNK6, "$(P)$(R)CFG_LIMIT:User_Rz_Pos PP")
+  field(DLY6, "0.0")
+  field(FLNK, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub08")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub08") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_CONTROL:AutomatedControlOn_RBV")
+  field(LNK1, "$(P)$(R)CFG_CONTROL:AutomatedControlOn PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_CONTROL:AutomatedControlOff_RBV")
+  field(LNK2, "$(P)$(R)CFG_CONTROL:AutomatedControlOff PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_CONTROL:Delay_RBV")
+  field(LNK3, "$(P)$(R)CFG_CONTROL:Delay PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_STALLCURRENT:Value_RBV")
+  field(LNK4, "$(P)$(R)CFG_STALLCURRENT:Value PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)CFG_BACKLASH:Axis_RBV")
+  field(LNK5, "$(P)$(R)CFG_BACKLASH:Axis PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)CFG_BACKLASH:Value_RBV")
+  field(LNK6, "$(P)$(R)CFG_BACKLASH:Value PP")
+  field(DLY6, "0.0")
+  field(FLNK, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub09")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub09") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_SAFETYINPUT:Value_RBV")
+  field(LNK1, "$(P)$(R)CFG_SAFETYINPUT:Value PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_CHANNEL:Actuator1_RBV")
+  field(LNK2, "$(P)$(R)CFG_CHANNEL:Actuator1 PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_CHANNEL:Actuator2_RBV")
+  field(LNK3, "$(P)$(R)CFG_CHANNEL:Actuator2 PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_CHANNEL:Actuator3_RBV")
+  field(LNK4, "$(P)$(R)CFG_CHANNEL:Actuator3 PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)CFG_CHANNEL:Actuator4_RBV")
+  field(LNK5, "$(P)$(R)CFG_CHANNEL:Actuator4 PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)CFG_CHANNEL:Actuator5_RBV")
+  field(LNK6, "$(P)$(R)CFG_CHANNEL:Actuator5 PP")
+  field(DLY6, "0.0")
+  field(DOL7, "$(P)$(R)CFG_CHANNEL:Actuator6_RBV")
+  field(LNK7, "$(P)$(R)CFG_CHANNEL:Actuator6 PP")
+  field(DLY7, "0.0")
+  field(FLNK, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub10")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub10") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_KIN:Mode_RBV")
+  field(LNK1, "$(P)$(R)CFG_KIN:Mode PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_TUNING:Index_RBV")
+  field(LNK2, "$(P)$(R)CFG_TUNING:Index PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_POWER:Enable_RBV")
+  field(LNK3, "$(P)$(R)CFG_POWER:Enable PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_POWER:Auto_RBV")
+  field(LNK4, "$(P)$(R)CFG_POWER:Auto PP")
+  field(DLY4, "0.0")
+  field(FLNK, "$(P)$(R)Drv:ValidateMove:CopyAndExecute")
+}
+
+##############################################################
+#
+# Hexapod Velocity Config Items
+#
+##############################################################
+
+record(ao, "$(P)$(R)CFG_SPEED:Trans") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VT_DMD")
+  field(PINI, "YES")
+}
+
+record(ai, "$(P)$(R)CFG_SPEED:Trans_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VT")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(R)CFG_SPEED:Trans_Min_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VT_MIN")
+  field(SCAN, "I/O Intr")
+}
+
+record(calcout, "$(P)$(R)Drv:SetLimit_Speed_Trans_Min") {
+  field(INPA, "$(P)$(R)CFG_SPEED:Trans_Min_RBV CPP")
+  field(CALC, "A")
+  field(OUT, "$(P)$(R)CFG_SPEED:Trans.DRVL")
+}
+
+record(ai, "$(P)$(R)CFG_SPEED:Trans_Max_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VT_MAX")
+  field(SCAN, "I/O Intr")
+}
+
+record(calcout, "$(P)$(R)Drv:SetLimit_Speed_Trans_Max") {
+  field(INPA, "$(P)$(R)CFG_SPEED:Trans_Max_RBV CPP")
+  field(CALC, "A")
+  field(OUT, "$(P)$(R)CFG_SPEED:Trans.DRVH")
+}
+
+record(ao, "$(P)$(R)CFG_SPEED:Rot") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_VR_DMD")
+  field(PINI, "YES")
+}
+
+record(ai, "$(P)$(R)CFG_SPEED:Rot_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VR")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(R)CFG_SPEED:Rot_Min_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VR_MIN")
+  field(SCAN, "I/O Intr")
+}
+
+record(calcout, "$(P)$(R)Drv:SetLimit_Speed_Rot_Min") {
+  field(INPA, "$(P)$(R)CFG_SPEED:Rot_Min_RBV CPP")
+  field(CALC, "A")
+  field(OUT, "$(P)$(R)CFG_SPEED:Rot.DRVL")
+}
+
+record(calcout, "$(P)$(R)Drv:SetLimit_Speed_Rot_Max") {
+  field(INPA, "$(P)$(R)CFG_SPEED:Rot_Max_RBV CPP")
+  field(CALC, "A")
+  field(OUT, "$(P)$(R)CFG_SPEED:Rot.DRVH")
+}
+
+record(ai, "$(P)$(R)CFG_SPEED:Rot_Max_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_VR_MAX")
+  field(SCAN, "I/O Intr")
+}
+
+##############################################################
+#
+# Hexapod Acceleration Config Items
+#
+##############################################################
+
+record(ao, "$(P)$(R)CFG_TA:Value") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TA_DMD")
+  field(PINI, "YES")
+}
+
+record(ai, "$(P)$(R)CFG_TA:Value_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TA")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(R)CFG_TA:Min_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TA_MIN")
+  field(SCAN, "I/O Intr")
+}
+
+record(ai, "$(P)$(R)CFG_TA:Max_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TA_MAX")
+  field(SCAN, "I/O Intr")
+}
+
+record(calcout, "$(P)$(R)Drv:SetLimit_TA_Min") {
+  field(INPA, "$(P)$(R)CFG_TA:Min_RBV CPP")
+  field(CALC, "A")
+  field(OUT, "$(P)$(R)CFG_TA:Value.DRVL")
+}
+
+record(calcout, "$(P)$(R)Drv:SetLimit_TA_Max") {
+  field(INPA, "$(P)$(R)CFG_TA:Max_RBV CPP")
+  field(CALC, "A")
+  field(OUT, "$(P)$(R)CFG_TA:Value.DRVH")
+}
+
+##############################################################
+#
+# Hexapod Coordinate System Config Items
+#
+##############################################################
+
+record(seq, "$(P)$(R)Drv:Copy_UserCSToObjectCS") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_CS:Txu")
+  field(LNK1, "$(P)$(R)CFG_CS:Txo PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_CS:Tyu")
+  field(LNK2, "$(P)$(R)CFG_CS:Tyo PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_CS:Tzu")
+  field(LNK3, "$(P)$(R)CFG_CS:Tzo PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_CS:Rxu")
+  field(LNK4, "$(P)$(R)CFG_CS:Rxo PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)CFG_CS:Ryu")
+  field(LNK5, "$(P)$(R)CFG_CS:Ryo PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)CFG_CS:Rzu")
+  field(LNK6, "$(P)$(R)CFG_CS:Rzo PP")
+  field(DLY6, "0.0")
+}
+
+record(seq, "$(P)$(R)Drv:Copy_ObjectCSToUserCS") {
+  field(PINI, "NO")
+  field(DOL1, "$(P)$(R)CFG_CS:Txo")
+  field(LNK1, "$(P)$(R)CFG_CS:Txu PP")
+  field(DLY1, "0.0")
+  field(DOL2, "$(P)$(R)CFG_CS:Tyo")
+  field(LNK2, "$(P)$(R)CFG_CS:Tyu PP")
+  field(DLY2, "0.0")
+  field(DOL3, "$(P)$(R)CFG_CS:Tzo")
+  field(LNK3, "$(P)$(R)CFG_CS:Tzu PP")
+  field(DLY3, "0.0")
+  field(DOL4, "$(P)$(R)CFG_CS:Rxo")
+  field(LNK4, "$(P)$(R)CFG_CS:Rxu PP")
+  field(DLY4, "0.0")
+  field(DOL5, "$(P)$(R)CFG_CS:Ryo")
+  field(LNK5, "$(P)$(R)CFG_CS:Ryu PP")
+  field(DLY5, "0.0")
+  field(DOL6, "$(P)$(R)CFG_CS:Rzo")
+  field(LNK6, "$(P)$(R)CFG_CS:Rzu PP")
+  field(DLY6, "0.0")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Txu") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TXU_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Tyu") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TYU_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Tzu") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TZU_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Rxu") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_RXU_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Ryu") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_RYU_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Rzu") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_RZU_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Txo") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TXO_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Tyo") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TYO_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Tzo") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TZO_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Rxo") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_RXO_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Ryo") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_RYO_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_CS:Rzo") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_RZO_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Txu_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TXU")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Tyu_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TYU")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Tzu_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TZU")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Rxu_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_RXU")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Ryu_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_RYU")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Rzu_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_RZU")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Txo_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TXO")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Tyo_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TYO")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Tzo_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TZO")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Rxo_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_RXO")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Ryo_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_RYO")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_CS:Rzo_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_RZO")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+##############################################################
+#
+# Hexapod Machine Limit Config Items
+#
+##############################################################
+
+record(bo, "$(P)$(R)CFG_LIMITENABLE:Machine") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_ENABLE_DMD")
+  field(ZNAM, "Disabled")
+  field(ONAM, "Enabled")
+  field(PINI, "YES")
+}
+
+record(bi, "$(P)$(R)CFG_LIMITENABLE:Machine_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_ENABLE")
+  field(ZNAM, "Disabled")
+  field(ONAM, "Enabled")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tx_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TX_NEG_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ty_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TY_NEG_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tz_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TZ_NEG_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rx_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RX_NEG_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ry_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RY_NEG_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rz_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RZ_NEG_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tx_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TX_POS_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ty_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TY_POS_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tz_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TZ_POS_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rx_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RX_POS_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ry_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RY_POS_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rz_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RZ_POS_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Tx_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TX_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Ty_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TY_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Tz_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TZ_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Rx_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RX_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Ry_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RY_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Rz_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RZ_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Tx_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TX_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Ty_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TY_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Tz_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TZ_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Rx_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RX_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Ry_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RY_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:Machine_Rz_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RZ_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+##############################################################
+#
+# Hexapod User Limit Config Items
+#
+##############################################################
+
+record(bo, "$(P)$(R)CFG_LIMITENABLE:User") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_ENABLE_DMD")
+  field(ZNAM, "Disabled")
+  field(ONAM, "Enabled")
+  field(PINI, "YES")
+}
+
+record(bi, "$(P)$(R)CFG_LIMITENABLE:User_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_ENABLE")
+  field(ZNAM, "Disabled")
+  field(ONAM, "Enabled")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Tx_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TX_NEG_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Ty_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TY_NEG_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Tz_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TZ_NEG_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Rx_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RX_NEG_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Ry_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RY_NEG_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Rz_Neg") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RZ_NEG_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Tx_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TX_POS_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Ty_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TY_POS_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Tz_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TZ_POS_DMD")
+  field(EGU, "mm")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Rx_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RX_POS_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Ry_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RY_POS_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ao, "$(P)$(R)CFG_LIMIT:User_Rz_Pos") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RZ_POS_DMD")
+  field(EGU, "deg")
+  field(PINI, "YES")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Tx_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TX_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Ty_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TY_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Tz_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TZ_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Rx_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RX_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Ry_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RY_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Rz_Neg_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RZ_NEG")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Tx_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TX_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Ty_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TY_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Tz_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TZ_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "mm")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Rx_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RX_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Ry_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RY_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+record(ai, "$(P)$(R)CFG_LIMIT:User_Rz_Pos_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RZ_POS")
+  field(SCAN, "I/O Intr")
+  field(EGU, "deg")
+}
+
+##############################################################
+#
+# Hexapod Auto Control Config Items
+#
+##############################################################
+
+record(bo, "$(P)$(R)CFG_CONTROL:AutomatedControlOn") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_AUTO_ACTIVATE_DMD")
+  field(ZNAM, "Disabled")
+  field(ONAM, "Enabled")
+  field(PINI, "YES")
+}
+
+record(bi, "$(P)$(R)CFG_CONTROL:AutomatedControlOn_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_AUTO_ACTIVATE")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "Disabled")
+  field(ONAM, "Enabled")
+}
+
+record(bo, "$(P)$(R)CFG_CONTROL:AutomatedControlOff") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_AUTO_DEACTIVATE_DMD")
+  field(ZNAM, "Disabled")
+  field(ONAM, "Enabled")
+  field(PINI, "YES")
+}
+
+record(bi, "$(P)$(R)CFG_CONTROL:AutomatedControlOff_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_AUTO_DEACTIVATE")
+  field(SCAN, "I/O Intr")
+  field(ZNAM, "Disabled")
+  field(ONAM, "Enabled")
+}
+
+record(ao, "$(P)$(R)CFG_CONTROL:Delay") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_AUTO_DELAY_DMD")
+  field(DRVL, "0.0")
+  field(DRVH, "3600.0")
+  field(PINI, "YES")
+}
+
+record(ai, "$(P)$(R)CFG_CONTROL:Delay_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_AUTO_DELAY")
+  field(SCAN, "I/O Intr")
+  field(EGU, "%")
+}
+
+##############################################################
+#
+# Hexapod Stall Current Config Items
+#
+##############################################################
+
+record(ao, "$(P)$(R)CFG_STALLCURRENT:Value") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_STALL_CURRENT_DMD")
+  field(DRVL, "0.0")
+  field(DRVH, "100.0")
+  field(PINI, "YES")
+}
+
+record(ai, "$(P)$(R)CFG_STALLCURRENT:Value_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_STALL_CURRENT")
+  field(SCAN, "I/O Intr")
+  field(EGU, "%")
+}
+
+##############################################################
+#
+# Hexapod Backlash Config Items
+#
+##############################################################
+
+record(mbbo, "$(P)$(R)CFG_BACKLASH:Axis") {
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(THVL, "3")
+  field(FRVL, "4")
+  field(FVVL, "5")
+  field(SXVL, "6")
+  field(ZRST, "None")
+  field(ONST, "Tx")
+  field(TWST, "Ty")
+  field(THST, "Tz")
+  field(FRST, "Rx")
+  field(FVST, "Ry")
+  field(SXST, "Rz")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_BKL_AXIS_DMD")
+  field(PINI, "YES")
+}
+
+record(mbbi, "$(P)$(R)CFG_BACKLASH:Axis_RBV") {
+  field(ZRVL, "0")
+  field(ONVL, "1")
+  field(TWVL, "2")
+  field(THVL, "3")
+  field(FRVL, "4")
+  field(FVVL, "5")
+  field(SXVL, "6")
+  field(ZRST, "None")
+  field(ONST, "Tx")
+  field(TWST, "Ty")
+  field(THST, "Tz")
+  field(FRST, "Rx")
+  field(FVST, "Ry")
+  field(SXST, "Rz")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_BKL_AXIS")
+  field(SCAN, "I/O Intr")
+}
+
+record(ao, "$(P)$(R)CFG_BACKLASH:Value") {
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_BKL_VALUE_DMD")
+  field(DRVL, "-0.5")
+  field(DRVH, "0.5")
+  field(PINI, "YES")
+}
+
+record(ai, "$(P)$(R)CFG_BACKLASH:Value_RBV") {
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_BKL_VALUE")
+  field(SCAN, "I/O Intr")
+}
+
+##############################################################
+#
+# Hexapod Safety Input Config Items
+#
+##############################################################
+
+record(longout, "$(P)$(R)CFG_SAFETYINPUT:Value") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_SAFETY_INPUT_DMD")
+}
+
+record(longin, "$(P)$(R)CFG_SAFETYINPUT:Value_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_SAFETY_INPUT")
+  field(SCAN, "I/O Intr")
+}
+
+##############################################################
+#
+# Hexapod Channel Config Items
+#
+##############################################################
+
+record(longout, "$(P)$(R)CFG_CHANNEL:Actuator1") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CHANNEL_1_DMD")
+  field(PINI, "YES")
+}
+
+record(longin, "$(P)$(R)CFG_CHANNEL:Actuator1_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CHANNEL_1")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P)$(R)CFG_CHANNEL:Actuator2") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CHANNEL_2_DMD")
+  field(PINI, "YES")
+}
+
+record(longin, "$(P)$(R)CFG_CHANNEL:Actuator2_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CHANNEL_2")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P)$(R)CFG_CHANNEL:Actuator3") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CHANNEL_3_DMD")
+  field(PINI, "YES")
+}
+
+record(longin, "$(P)$(R)CFG_CHANNEL:Actuator3_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CHANNEL_3")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P)$(R)CFG_CHANNEL:Actuator4") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CHANNEL_4_DMD")
+  field(PINI, "YES")
+}
+
+record(longin, "$(P)$(R)CFG_CHANNEL:Actuator4_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CHANNEL_4")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P)$(R)CFG_CHANNEL:Actuator5") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CHANNEL_5_DMD")
+  field(PINI, "YES")
+}
+
+record(longin, "$(P)$(R)CFG_CHANNEL:Actuator5_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CHANNEL_5")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P)$(R)CFG_CHANNEL:Actuator6") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CHANNEL_6_DMD")
+  field(PINI, "YES")
+}
+
+record(longin, "$(P)$(R)CFG_CHANNEL:Actuator6_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CHANNEL_6")
+  field(SCAN, "I/O Intr")
+}
+
+##############################################################
+#
+# Hexapod Home Config Items
+#
+##############################################################
+
+record(longin, "$(P)$(R)CFG_HOME:Auto_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_HOME_AUTO")
+  field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P)$(R)CFG_HOME:Virtual_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_HOME_VIRTUAL")
+  field(SCAN, "I/O Intr")
+}
+
+record(longin, "$(P)$(R)CFG_HOME:Type_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_HOME_TYPE")
+  field(SCAN, "I/O Intr")
+}
+
+##############################################################
+#
+# Hexapod Kinematic Config Items
+#
+##############################################################
+
+record(longin, "$(P)$(R)CFG_KIN:Mode_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_KIN_MODE")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P)$(R)CFG_KIN:Mode") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_KIN_MODE_DMD")
+  field(PINI, "YES")
+}
+
+record(longin, "$(P)$(R)CFG_KIN:OperationalAxesNum_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_KIN_AXES")
+  field(SCAN, "I/O Intr")
+}
+
+##############################################################
+#
+# Hexapod Tuning Config Items
+#
+##############################################################
+
+record(longin, "$(P)$(R)CFG_TUNING:Index_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_TUNING_IDX")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P)$(R)CFG_TUNING:Index") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_TUNING_IDX_DMD")
+  field(PINI, "YES")
+}
+
+##############################################################
+#
+# Hexapod Power Config Items
+#
+##############################################################
+
+record(longin, "$(P)$(R)CFG_POWER:Enable_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CFG_POWER_ENABLE")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P)$(R)CFG_POWER:Enable") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CFG_POWER_ENABLE_DMD")
+  field(PINI, "YES")
+}
+
+record(longin, "$(P)$(R)CFG_POWER:Auto_RBV") {
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CFG_POWER_AUTO")
+  field(SCAN, "I/O Intr")
+}
+
+record(longout, "$(P)$(R)CFG_POWER:Auto") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CFG_POWER_AUTO_DMD")
+  field(PINI, "YES")
+}
+
+##############################################################
+#
+# Hexapod Configuration Control Records
+#
+##############################################################
+
+record(longout, "$(P)$(R)CFG_GET") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "Passive")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CFG_GET")
+}
+
+record(longout, "$(P)$(R)CFG_SET") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "Passive")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CFG_SET")
+  field(FLNK, "$(P)$(R)Drv:ValidateMove:CopyAndExecute")
+}
+
+record(bo, "$(P)$(R)CFG_DEFAULT") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CFG_DEFAULT")
+  field(FLNK, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd")
+}
+
+record(bo, "$(P)$(R)CFG_SAVE") {
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(PORT),0)SYM_HEX_CFG_SAVE")
+}
+
+record(bi, "$(P)$(R)CFG_SAVE:saved_RBV") {
+  field(DTYP, "asynInt32")
+  field(SCAN, "I/O Intr")
+  field(INP, "@asyn($(PORT),0)SYM_HEX_CFG_SAVE")
+}
+
+##############################################################
+#
+# Include Axis Templates
+#
+##############################################################
+
+substitute "AXIS=1"
+include "SymetriePmacAxis.template"
+substitute "AXIS=2"
+include "SymetriePmacAxis.template"
+substitute "AXIS=3"
+include "SymetriePmacAxis.template"
+substitute "AXIS=4"
+include "SymetriePmacAxis.template"
+substitute "AXIS=5"
+include "SymetriePmacAxis.template"
+substitute "AXIS=6"
+include "SymetriePmacAxis.template"
+
+##############################################################
+#
+# Include Error Handling Template
+#
+##############################################################
+
+substitute "ADDR=0"
+include "SymetriePmacError.template"
+substitute "ADDR=1"
+include "SymetriePmacError.template"
+substitute "ADDR=2"
+include "SymetriePmacError.template"
+substitute "ADDR=3"
+include "SymetriePmacError.template"
+substitute "ADDR=4"
+include "SymetriePmacError.template"
+substitute "ADDR=5"
+include "SymetriePmacError.template"
+substitute "ADDR=6"
+include "SymetriePmacError.template"
+substitute "ADDR=7"
+include "SymetriePmacError.template"
+substitute "ADDR=8"
+include "SymetriePmacError.template"
+substitute "ADDR=9"
+include "SymetriePmacError.template"
+substitute "ADDR=10"
+include "SymetriePmacError.template"
+substitute "ADDR=11"
+include "SymetriePmacError.template"
+substitute "ADDR=12"
+include "SymetriePmacError.template"
+substitute "ADDR=13"
+include "SymetriePmacError.template"
+substitute "ADDR=14"
+include "SymetriePmacError.template"
+substitute "ADDR=15"
+include "SymetriePmacError.template"
+substitute "ADDR=16"
+include "SymetriePmacError.template"
+substitute "ADDR=17"
+include "SymetriePmacError.template"
+substitute "ADDR=18"
+include "SymetriePmacError.template"
+substitute "ADDR=19"
+include "SymetriePmacError.template"
+
