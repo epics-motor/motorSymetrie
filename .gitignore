@@ -1,8 +1,8 @@
 /cfg/
-/bin/
+bin/
 /lib/
 db/
-/dbd/
+dbd/
 /html/
 /include/
 /templates/
