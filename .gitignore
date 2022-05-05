@@ -1,7 +1,7 @@
 /cfg/
 /bin/
 /lib/
-/db/
+db/
 /dbd/
 /html/
 /include/
