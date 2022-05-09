@@ -330,6 +330,7 @@ record(ai, "$(P)$(R)s_uto_tx_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_TX")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -337,6 +338,7 @@ record(ai, "$(P)$(R)s_uto_ty_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_TY")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -344,6 +346,7 @@ record(ai, "$(P)$(R)s_uto_tz_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_TZ")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -351,6 +354,7 @@ record(ai, "$(P)$(R)s_uto_rx_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_RX")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -358,6 +362,7 @@ record(ai, "$(P)$(R)s_uto_ry_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_RY")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -365,6 +370,7 @@ record(ai, "$(P)$(R)s_uto_rz_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_UTO_RZ")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -379,6 +385,7 @@ record(ai, "$(P)$(R)s_mtp_tx_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_TX")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -386,6 +393,7 @@ record(ai, "$(P)$(R)s_mtp_ty_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_TY")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -393,6 +401,7 @@ record(ai, "$(P)$(R)s_mtp_tz_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_TZ")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -400,6 +409,7 @@ record(ai, "$(P)$(R)s_mtp_rx_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_RX")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -407,6 +417,7 @@ record(ai, "$(P)$(R)s_mtp_ry_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_RY")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -414,6 +425,7 @@ record(ai, "$(P)$(R)s_mtp_rz_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_MTP_RZ")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -528,6 +540,7 @@ record(longout, "$(P)$(R)MOVE_PTP") {
 }
 
 record(ao, "$(P)$(R)MOVE_PTP:Tx") {
+  field(PREC, "4")
   field(EGU, "mm")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_TX_DMD")
@@ -536,6 +549,7 @@ record(ao, "$(P)$(R)MOVE_PTP:Tx") {
 }
 
 record(ao, "$(P)$(R)MOVE_PTP:Ty") {
+  field(PREC, "4")
   field(EGU, "mm")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_TY_DMD")
@@ -544,6 +558,7 @@ record(ao, "$(P)$(R)MOVE_PTP:Ty") {
 }
 
 record(ao, "$(P)$(R)MOVE_PTP:Tz") {
+  field(PREC, "4")
   field(EGU, "mm")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_TZ_DMD")
@@ -552,6 +567,7 @@ record(ao, "$(P)$(R)MOVE_PTP:Tz") {
 }
 
 record(ao, "$(P)$(R)MOVE_PTP:Rx") {
+  field(PREC, "4")
   field(EGU, "deg")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_RX_DMD")
@@ -560,6 +576,7 @@ record(ao, "$(P)$(R)MOVE_PTP:Rx") {
 }
 
 record(ao, "$(P)$(R)MOVE_PTP:Ry") {
+  field(PREC, "4")
   field(EGU, "deg")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_RY_DMD")
@@ -568,6 +585,7 @@ record(ao, "$(P)$(R)MOVE_PTP:Ry") {
 }
 
 record(ao, "$(P)$(R)MOVE_PTP:Rz") {
+  field(PREC, "4")
   field(EGU, "deg")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MOVE_RZ_DMD")
@@ -672,6 +690,7 @@ record(longin, "$(P)$(R)VALID_PTP:Result_RBV") {
 }
 
 record(ao, "$(P)$(R)VALID_PTP:Tx") {
+  field(PREC, "4")
   field(EGU, "mm")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_TX")
@@ -679,6 +698,7 @@ record(ao, "$(P)$(R)VALID_PTP:Tx") {
 }
 
 record(ao, "$(P)$(R)VALID_PTP:Ty") {
+  field(PREC, "4")
   field(EGU, "mm")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_TY")
@@ -686,6 +706,7 @@ record(ao, "$(P)$(R)VALID_PTP:Ty") {
 }
 
 record(ao, "$(P)$(R)VALID_PTP:Tz") {
+  field(PREC, "4")
   field(EGU, "mm")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_TZ")
@@ -693,6 +714,7 @@ record(ao, "$(P)$(R)VALID_PTP:Tz") {
 }
 
 record(ao, "$(P)$(R)VALID_PTP:Rx") {
+  field(PREC, "4")
   field(EGU, "deg")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_RX")
@@ -700,6 +722,7 @@ record(ao, "$(P)$(R)VALID_PTP:Rx") {
 }
 
 record(ao, "$(P)$(R)VALID_PTP:Ry") {
+  field(PREC, "4")
   field(EGU, "deg")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_RY")
@@ -707,6 +730,7 @@ record(ao, "$(P)$(R)VALID_PTP:Ry") {
 }
 
 record(ao, "$(P)$(R)VALID_PTP:Rz") {
+  field(PREC, "4")
   field(EGU, "deg")
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_VALID_PTP_RZ")
@@ -1366,6 +1390,7 @@ record(seq, "$(P)$(R)Drv:Copy_ObjectCSToUserCS") {
 record(ao, "$(P)$(R)CFG_CS:Txu") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_TXU_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1373,6 +1398,7 @@ record(ao, "$(P)$(R)CFG_CS:Txu") {
 record(ao, "$(P)$(R)CFG_CS:Tyu") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_TYU_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1380,6 +1406,7 @@ record(ao, "$(P)$(R)CFG_CS:Tyu") {
 record(ao, "$(P)$(R)CFG_CS:Tzu") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_TZU_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1387,6 +1414,7 @@ record(ao, "$(P)$(R)CFG_CS:Tzu") {
 record(ao, "$(P)$(R)CFG_CS:Rxu") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_RXU_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1394,6 +1422,7 @@ record(ao, "$(P)$(R)CFG_CS:Rxu") {
 record(ao, "$(P)$(R)CFG_CS:Ryu") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_RYU_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1401,6 +1430,7 @@ record(ao, "$(P)$(R)CFG_CS:Ryu") {
 record(ao, "$(P)$(R)CFG_CS:Rzu") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_RZU_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1408,6 +1438,7 @@ record(ao, "$(P)$(R)CFG_CS:Rzu") {
 record(ao, "$(P)$(R)CFG_CS:Txo") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_TXO_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1415,6 +1446,7 @@ record(ao, "$(P)$(R)CFG_CS:Txo") {
 record(ao, "$(P)$(R)CFG_CS:Tyo") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_TYO_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1422,6 +1454,7 @@ record(ao, "$(P)$(R)CFG_CS:Tyo") {
 record(ao, "$(P)$(R)CFG_CS:Tzo") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_TZO_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1429,6 +1462,7 @@ record(ao, "$(P)$(R)CFG_CS:Tzo") {
 record(ao, "$(P)$(R)CFG_CS:Rxo") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_RXO_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1436,6 +1470,7 @@ record(ao, "$(P)$(R)CFG_CS:Rxo") {
 record(ao, "$(P)$(R)CFG_CS:Ryo") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_RYO_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1443,6 +1478,7 @@ record(ao, "$(P)$(R)CFG_CS:Ryo") {
 record(ao, "$(P)$(R)CFG_CS:Rzo") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_RZO_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1451,6 +1487,7 @@ record(ai, "$(P)$(R)CFG_CS:Txu_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_TXU")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1458,6 +1495,7 @@ record(ai, "$(P)$(R)CFG_CS:Tyu_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_TYU")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1465,6 +1503,7 @@ record(ai, "$(P)$(R)CFG_CS:Tzu_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_TZU")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1472,6 +1511,7 @@ record(ai, "$(P)$(R)CFG_CS:Rxu_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_RXU")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1479,6 +1519,7 @@ record(ai, "$(P)$(R)CFG_CS:Ryu_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_RYU")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1486,6 +1527,7 @@ record(ai, "$(P)$(R)CFG_CS:Rzu_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_RZU")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1493,6 +1535,7 @@ record(ai, "$(P)$(R)CFG_CS:Txo_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_TXO")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1500,6 +1543,7 @@ record(ai, "$(P)$(R)CFG_CS:Tyo_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_TYO")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1507,6 +1551,7 @@ record(ai, "$(P)$(R)CFG_CS:Tzo_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_TZO")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1514,6 +1559,7 @@ record(ai, "$(P)$(R)CFG_CS:Rxo_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_RXO")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1521,6 +1567,7 @@ record(ai, "$(P)$(R)CFG_CS:Ryo_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_RYO")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1528,6 +1575,7 @@ record(ai, "$(P)$(R)CFG_CS:Rzo_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_RZO")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1556,6 +1604,7 @@ record(bi, "$(P)$(R)CFG_LIMITENABLE:Machine_RBV") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tx_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TX_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1563,6 +1612,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tx_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ty_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TY_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1570,6 +1620,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ty_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tz_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TZ_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1577,6 +1628,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tz_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rx_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RX_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1584,6 +1636,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rx_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ry_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RY_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1591,6 +1644,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ry_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rz_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RZ_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1598,6 +1652,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rz_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tx_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TX_POS_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1605,6 +1660,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tx_Pos") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ty_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TY_POS_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1612,6 +1668,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ty_Pos") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tz_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_TZ_POS_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1619,6 +1676,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Tz_Pos") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rx_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RX_POS_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1626,6 +1684,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rx_Pos") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ry_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RY_POS_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1633,6 +1692,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:Machine_Ry_Pos") {
 record(ao, "$(P)$(R)CFG_LIMIT:Machine_Rz_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_MLIM_RZ_POS_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1641,6 +1701,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Tx_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TX_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1648,6 +1709,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Ty_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TY_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1655,6 +1717,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Tz_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TZ_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1662,6 +1725,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Rx_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RX_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1669,6 +1733,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Ry_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RY_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1676,6 +1741,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Rz_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RZ_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1683,6 +1749,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Tx_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TX_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1690,6 +1757,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Ty_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TY_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1697,6 +1765,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Tz_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_TZ_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1704,6 +1773,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Rx_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RX_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1711,6 +1781,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Ry_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RY_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1718,6 +1789,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:Machine_Rz_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_MLIM_RZ_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1746,6 +1818,7 @@ record(bi, "$(P)$(R)CFG_LIMITENABLE:User_RBV") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Tx_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TX_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1753,6 +1826,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Tx_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Ty_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TY_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1760,6 +1834,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Ty_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Tz_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TZ_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1767,6 +1842,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Tz_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Rx_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RX_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1774,6 +1850,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Rx_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Ry_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RY_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1781,6 +1858,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Ry_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Rz_Neg") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RZ_NEG_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1788,6 +1866,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Rz_Neg") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Tx_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TX_POS_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1795,6 +1874,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Tx_Pos") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Ty_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TY_POS_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1802,6 +1882,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Ty_Pos") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Tz_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_TZ_POS_DMD")
+  field(PREC, "4")
   field(EGU, "mm")
   field(PINI, "YES")
 }
@@ -1809,6 +1890,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Tz_Pos") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Rx_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RX_POS_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1816,6 +1898,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Rx_Pos") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Ry_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RY_POS_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1823,6 +1906,7 @@ record(ao, "$(P)$(R)CFG_LIMIT:User_Ry_Pos") {
 record(ao, "$(P)$(R)CFG_LIMIT:User_Rz_Pos") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_ULIM_RZ_POS_DMD")
+  field(PREC, "4")
   field(EGU, "deg")
   field(PINI, "YES")
 }
@@ -1831,6 +1915,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Tx_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TX_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1838,6 +1923,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Ty_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TY_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1845,6 +1931,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Tz_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TZ_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1852,6 +1939,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Rx_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RX_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1859,6 +1947,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Ry_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RY_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1866,6 +1955,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Rz_Neg_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RZ_NEG")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1873,6 +1963,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Tx_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TX_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1880,6 +1971,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Ty_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TY_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1887,6 +1979,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Tz_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_TZ_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
@@ -1894,6 +1987,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Rx_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RX_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1901,6 +1995,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Ry_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RY_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1908,6 +2003,7 @@ record(ai, "$(P)$(R)CFG_LIMIT:User_Rz_Pos_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_ULIM_RZ_POS")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "deg")
 }
 
@@ -1961,6 +2057,7 @@ record(ai, "$(P)$(R)CFG_CONTROL:Delay_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_AUTO_DELAY")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "%")
 }
 
@@ -1982,6 +2079,7 @@ record(ai, "$(P)$(R)CFG_STALLCURRENT:Value_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_STALL_CURRENT")
   field(SCAN, "I/O Intr")
+  field(PREC, "4")
   field(EGU, "%")
 }
 
