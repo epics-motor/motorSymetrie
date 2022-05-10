@@ -9,12 +9,12 @@ file "$(MOTOR)/db/SymetriePmacAxis.template"
 {
 pattern
 {AXIS}
-{0}
 {1}
 {2}
 {3}
 {4}
 {5}
+{6}
 }
 
 file "$(MOTOR)/db/SymetriePmacError.template"
