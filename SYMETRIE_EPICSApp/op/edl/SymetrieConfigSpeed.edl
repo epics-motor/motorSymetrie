@@ -210,7 +210,7 @@ fgColor index 14
 bgColor index 0
 useDisplayBg
 value {
-  "Translation Speed (mm/s)"
+  "Acceleration Time (s)"
 }
 endObjectProperties
 

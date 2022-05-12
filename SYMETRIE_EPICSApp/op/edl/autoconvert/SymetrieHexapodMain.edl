@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1177
-y 172
+x 1071
+y 265
 w 545
 h 560
 font "helvetica-medium-r-18.0"
@@ -499,19 +499,6 @@ value {
 }
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 275
-y 70
-w 180
-h 70
-
-beginGroup
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -530,11 +517,6 @@ value {
   "Specific positions"
 }
 endObjectProperties
-
-endGroup
-
-endObjectProperties
-
 
 # (Static Text)
 object activeXTextClass
@@ -862,32 +844,6 @@ endGroup
 endObjectProperties
 
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 270
-w 154
-h 170
-
-beginGroup
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 295
-w 154
-h 145
-
-beginGroup
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -1016,7 +972,7 @@ controlPv "$(P)$(R)s_uto_tx_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
-fgColor rgb 10752 25344 58368
+fgColor rgb 2560 0 47104
 bgColor rgb 47872 47872 47872
 limitsFromDb
 nullColor rgb 60928 46592 11008
@@ -1040,7 +996,7 @@ controlPv "$(P)$(R)s_uto_ty_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
-fgColor rgb 10752 25344 58368
+fgColor rgb 2560 0 47104
 bgColor rgb 47872 47872 47872
 limitsFromDb
 nullColor rgb 60928 46592 11008
@@ -1064,7 +1020,7 @@ controlPv "$(P)$(R)s_uto_tz_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
-fgColor rgb 10752 25344 58368
+fgColor rgb 2560 0 47104
 bgColor rgb 47872 47872 47872
 limitsFromDb
 nullColor rgb 60928 46592 11008
@@ -1088,7 +1044,7 @@ controlPv "$(P)$(R)s_uto_rx_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
-fgColor rgb 10752 25344 58368
+fgColor rgb 2560 0 47104
 bgColor rgb 47872 47872 47872
 limitsFromDb
 nullColor rgb 60928 46592 11008
@@ -1112,7 +1068,7 @@ controlPv "$(P)$(R)s_uto_ry_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
-fgColor rgb 10752 25344 58368
+fgColor rgb 2560 0 47104
 bgColor rgb 47872 47872 47872
 limitsFromDb
 nullColor rgb 60928 46592 11008
@@ -1136,7 +1092,7 @@ controlPv "$(P)$(R)s_uto_rz_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
-fgColor rgb 10752 25344 58368
+fgColor rgb 2560 0 47104
 bgColor rgb 47872 47872 47872
 limitsFromDb
 nullColor rgb 60928 46592 11008
@@ -1145,11 +1101,6 @@ fastUpdate
 newPos
 objType "controls"
 endObjectProperties
-
-endGroup
-
-endObjectProperties
-
 
 # (Static Text)
 object activeXTextClass
@@ -1170,11 +1121,6 @@ value {
 }
 endObjectProperties
 
-endGroup
-
-endObjectProperties
-
-
 # (Text Monitor)
 object activeXTextDspClass:noedit
 beginObjectProperties
@@ -1189,7 +1135,7 @@ controlPv "$(P)$(R)Drv:CmdReturnCode_RBV"
 format "decimal"
 font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor rgb 10752 25344 58368
+fgColor rgb 2560 0 47104
 bgColor rgb 47872 47872 47872
 limitsFromDb
 nullColor rgb 60928 46592 11008
@@ -1213,7 +1159,7 @@ controlPv "$(P)$(R)Drv:CmdReturnDescription_RBV"
 format "string"
 font "helvetica-medium-r-14.0"
 fontAlign "left"
-fgColor rgb 10752 25344 58368
+fgColor rgb 2560 0 47104
 bgColor rgb 47872 47872 47872
 limitsFromDb
 nullColor rgb 60928 46592 11008
@@ -1310,8 +1256,8 @@ x 5
 y 520
 w 90
 h 30
-lineColor rgb 0 0 0
-fillColor rgb 0 0 0
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 lineWidth 0
 endObjectProperties
 
@@ -1473,33 +1419,37 @@ botShadowColor rgb 17920 17920 17920
 font "helvetica-medium-r-14.0"
 icon
 buttonLabel "Menu"
-numPvs 2
-numDsps 1
+numPvs 10
+numDsps 5
 displayFileName {
-  0 "SymetrieAdvanced.edl"
+  0 "SymetrieConfigSpeed.edl"
+  1 "SymetrieConfigAdvanced.edl"
+  2 "SymetrieConfigMachineLimits.edl"
+  3 "SymetrieConfigUserLimits.edl"
+  4 "SymetrieConfigCS.edl"
 }
 menuLabel {
-  0 "Advanced states"
+  0 "Speed config"
+  1 "Advanced config"
+  2 "Machine limits config"
+  3 "User limits config"
+  4 "Coordinate system config"
 }
 symbols {
   0 "P=$(P),R=$(R)"
+  1 "P=$(P),R=$(R)"
+  2 "P=$(P),R=$(R)"
+  3 "P=$(P),R=$(R)"
+  4 "P=$(P),R=$(R)"
 }
 replaceSymbols {
   0 1
+  1 1
+  2 1
+  3 1
+  4 1
 }
 endObjectProperties
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 275
-y 70
-w 180
-h 70
-
-beginGroup
 
 # (Menu Button)
 object activeMenuButtonClass
@@ -1545,11 +1495,6 @@ offLabel "Move To"
 useEnumNumeric
 font "helvetica-medium-r-12.0"
 endObjectProperties
-
-endGroup
-
-endObjectProperties
-
 
 # (Related Display)
 object relatedDisplayClass
@@ -1650,40 +1595,6 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 24
-y 270
-w 154
-h 170
-
-beginGroup
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 24
-y 295
-w 154
-h 145
-
-beginGroup
-
-endGroup
-
-endObjectProperties
-
-
-endGroup
-
-endObjectProperties
-
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
 x 130
 y 20
 w 100
@@ -1769,4 +1680,24 @@ visMin 0
 visMax 1
 endObjectProperties
 
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 53
+y 450
+w 125
+h 20
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+inconsistentColor rgb 17920 17920 17920
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+controlPv "$(P)$(R)STATUS_GET.SCAN"
+indicatorPv "$(P)$(R)STATUS_GET.SCAN"
+font "helvetica-medium-r-12.0"
+endObjectProperties
 
