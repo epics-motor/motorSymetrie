@@ -1226,72 +1226,99 @@ record(seq, "$(P)$(R)Drv:Copy_CfgStatusToCfgCmd_Sub10") {
 record(ao, "$(P)$(R)CFG_SPEED:Trans") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_VT_DMD")
+  field(PREC, "4")
+  field(EGU, "mm/s")
   field(PINI, "YES")
 }
 
 record(ai, "$(P)$(R)CFG_SPEED:Trans_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_VT")
+  field(PREC, "4")
+  field(EGU, "mm/s")
   field(SCAN, "I/O Intr")
 }
 
 record(ai, "$(P)$(R)CFG_SPEED:Trans_Min_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_VT_MIN")
+  field(PREC, "4")
   field(SCAN, "I/O Intr")
 }
 
-record(calcout, "$(P)$(R)Drv:SetLimit_Speed_Trans_Min") {
-  field(INPA, "$(P)$(R)CFG_SPEED:Trans_Min_RBV CPP")
-  field(CALC, "A")
-  field(OUT, "$(P)$(R)CFG_SPEED:Trans.DRVL")
+record(dfanout, "$(P)$(R)Drv:SetLimit_Speed_Trans_Min") {
+  field(DOL, "$(P)$(R)CFG_SPEED:Trans_Min_RBV CPP")
+  field(OMSL, "closed_loop")
+  field(PREC, "4")
+  field(EGU, "mm/s")
+  field(OUTA, "$(P)$(R)CFG_SPEED:Trans.DRVL")
+  field(OUTB, "$(P)$(R)CFG_SPEED:Trans.LOPR")
 }
 
 record(ai, "$(P)$(R)CFG_SPEED:Trans_Max_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_VT_MAX")
+  field(PREC, "4")
+  field(EGU, "mm/s")
   field(SCAN, "I/O Intr")
 }
 
-record(calcout, "$(P)$(R)Drv:SetLimit_Speed_Trans_Max") {
-  field(INPA, "$(P)$(R)CFG_SPEED:Trans_Max_RBV CPP")
-  field(CALC, "A")
-  field(OUT, "$(P)$(R)CFG_SPEED:Trans.DRVH")
+record(dfanout, "$(P)$(R)Drv:SetLimit_Speed_Trans_Max") {
+  field(DOL, "$(P)$(R)CFG_SPEED:Trans_Max_RBV CPP")
+  field(OMSL, "closed_loop")
+  field(PREC, "4")
+  field(EGU, "mm/s")
+  field(OUTA, "$(P)$(R)CFG_SPEED:Trans.DRVH")
+  field(OUTB, "$(P)$(R)CFG_SPEED:Trans.HOPR")
 }
 
 record(ao, "$(P)$(R)CFG_SPEED:Rot") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_VR_DMD")
+  field(PREC, "4")
+  field(EGU, "deg/s")
   field(PINI, "YES")
 }
 
 record(ai, "$(P)$(R)CFG_SPEED:Rot_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_VR")
+  field(PREC, "4")
+  field(EGU, "deg/s")
   field(SCAN, "I/O Intr")
 }
 
 record(ai, "$(P)$(R)CFG_SPEED:Rot_Min_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_VR_MIN")
+  field(PREC, "4")
+  field(EGU, "deg/s")
   field(SCAN, "I/O Intr")
 }
 
-record(calcout, "$(P)$(R)Drv:SetLimit_Speed_Rot_Min") {
-  field(INPA, "$(P)$(R)CFG_SPEED:Rot_Min_RBV CPP")
-  field(CALC, "A")
-  field(OUT, "$(P)$(R)CFG_SPEED:Rot.DRVL")
+record(dfanout, "$(P)$(R)Drv:SetLimit_Speed_Rot_Min") {
+  field(DOL, "$(P)$(R)CFG_SPEED:Rot_Min_RBV CPP")
+  field(OMSL, "closed_loop")
+  field(PREC, "4")
+  field(EGU, "deg/s")
+  field(OUTA, "$(P)$(R)CFG_SPEED:Rot.DRVL")
+  field(OUTB, "$(P)$(R)CFG_SPEED:Rot.LOPR")
 }
 
-record(calcout, "$(P)$(R)Drv:SetLimit_Speed_Rot_Max") {
-  field(INPA, "$(P)$(R)CFG_SPEED:Rot_Max_RBV CPP")
-  field(CALC, "A")
-  field(OUT, "$(P)$(R)CFG_SPEED:Rot.DRVH")
+record(dfanout, "$(P)$(R)Drv:SetLimit_Speed_Rot_Max") {
+  field(DOL, "$(P)$(R)CFG_SPEED:Rot_Max_RBV CPP")
+  field(OMSL, "closed_loop")
+  field(PREC, "4")
+  field(EGU, "deg/s")
+  field(OUTA, "$(P)$(R)CFG_SPEED:Rot.DRVH")
+  field(OUTB, "$(P)$(R)CFG_SPEED:Rot.HOPR")
 }
 
 record(ai, "$(P)$(R)CFG_SPEED:Rot_Max_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_VR_MAX")
+  field(PREC, "4")
+  field(EGU, "deg/s")
   field(SCAN, "I/O Intr")
 }
 
@@ -1304,37 +1331,51 @@ record(ai, "$(P)$(R)CFG_SPEED:Rot_Max_RBV") {
 record(ao, "$(P)$(R)CFG_TA:Value") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_TA_DMD")
+  field(PREC, "4")
+  field(EGU, "s")
   field(PINI, "YES")
 }
 
 record(ai, "$(P)$(R)CFG_TA:Value_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_TA")
+  field(PREC, "4")
+  field(EGU, "s")
   field(SCAN, "I/O Intr")
 }
 
 record(ai, "$(P)$(R)CFG_TA:Min_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_TA_MIN")
+  field(PREC, "4")
+  field(EGU, "s")
   field(SCAN, "I/O Intr")
 }
 
 record(ai, "$(P)$(R)CFG_TA:Max_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_TA_MAX")
+  field(PREC, "4")
+  field(EGU, "s")
   field(SCAN, "I/O Intr")
 }
 
-record(calcout, "$(P)$(R)Drv:SetLimit_TA_Min") {
-  field(INPA, "$(P)$(R)CFG_TA:Min_RBV CPP")
-  field(CALC, "A")
-  field(OUT, "$(P)$(R)CFG_TA:Value.DRVL")
+record(dfanout, "$(P)$(R)Drv:SetLimit_TA_Min") {
+  field(DOL, "$(P)$(R)CFG_TA:Min_RBV CPP")
+  field(OMSL, "closed_loop")
+  field(PREC, "4")
+  field(EGU, "s")
+  field(OUTA, "$(P)$(R)CFG_TA:Value.DRVL")
+  field(OUTB, "$(P)$(R)CFG_TA:Value.LOPR")
 }
 
-record(calcout, "$(P)$(R)Drv:SetLimit_TA_Max") {
-  field(INPA, "$(P)$(R)CFG_TA:Max_RBV CPP")
-  field(CALC, "A")
-  field(OUT, "$(P)$(R)CFG_TA:Value.DRVH")
+record(dfanout, "$(P)$(R)Drv:SetLimit_TA_Max") {
+  field(DOL, "$(P)$(R)CFG_TA:Max_RBV CPP")
+  field(OMSL, "closed_loop")
+  field(PREC, "4")
+  field(EGU, "s")
+  field(OUTA, "$(P)$(R)CFG_TA:Value.DRVH")
+  field(OUTB, "$(P)$(R)CFG_TA:Value.HOPR")
 }
 
 ##############################################################
@@ -2071,7 +2112,10 @@ record(ao, "$(P)$(R)CFG_STALLCURRENT:Value") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_STALL_CURRENT_DMD")
   field(DRVL, "0.0")
+  field(LOPR, "0.0")
   field(DRVH, "100.0")
+  field(HOPR, "100.0")
+  field(PREC, "4")
   field(PINI, "YES")
 }
 
@@ -2133,13 +2177,17 @@ record(ao, "$(P)$(R)CFG_BACKLASH:Value") {
   field(DTYP, "asynFloat64")
   field(OUT, "@asyn($(PORT),0)SYM_HEX_BKL_VALUE_DMD")
   field(DRVL, "-0.5")
+  field(LOPR, "-0.5")
   field(DRVH, "0.5")
+  field(HOPR, "0.5")
+  field(PREC, "4")
   field(PINI, "YES")
 }
 
 record(ai, "$(P)$(R)CFG_BACKLASH:Value_RBV") {
   field(DTYP, "asynFloat64")
   field(INP, "@asyn($(PORT),0)SYM_HEX_BKL_VALUE")
+  field(PREC, "4")
   field(SCAN, "I/O Intr")
 }
 
