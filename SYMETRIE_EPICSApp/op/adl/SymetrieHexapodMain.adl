@@ -1,12 +1,12 @@
 
 file {
-	name="/home/epics/devel/motor/modules/motorSymetrie/SYMETRIE_EPICSApp/opi/edl/SymetrieHexapodMain.adl"
+	name="/home/epics/devel/motor/modules/motorSymetrie/SYMETRIE_EPICSApp/op/adl/SymetrieHexapodMain.adl"
 	version=030109
 }
 display {
 	object {
-		x=1177
-		y=172
+		x=1071
+		y=265
 		width=545
 		height=560
 	}
@@ -485,64 +485,73 @@ text {
 		height=25
 	}
 	display[0] {
-		label="Advanced states"
-		name="SymetrieAdvanced.adl"
+		label="Speed config"
+		name="SymetrieConfigSpeed.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[1] {
+		label="Advanced config"
+		name="SymetrieConfigAdvanced.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[2] {
+		label="Machine limits config"
+		name="SymetrieConfigMachineLimits.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[3] {
+		label="User limits config"
+		name="SymetrieConfigUserLimits.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[4] {
+		label="Coordinate system config"
+		name="SymetrieConfigCS.adl"
 		args="P=$(P),R=$(R)"
 	}
 	clr=14
 	bclr=51
 	label="Menu"
 }
-composite {
+text {
 	object {
 		x=275
 		y=70
 		width=180
-		height=70
+		height=20
 	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=275
-				y=70
-				width=180
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="Specific positions"
-		}
-		menu {
-			object {
-				x=275
-				y=95
-				width=120
-				height=20
-			}
-			control {
-				chan="$(P)$(R)MOVE_SPECIFICPOS:Index"
-				clr=14
-				bclr=4
-			}
-		}
-		"message button" {
-			object {
-				x=275
-				y=120
-				width=120
-				height=20
-			}
-			control {
-				chan="$(P)$(R)MOVE_SPECIFICPOS.PROC"
-				clr=14
-				bclr=51
-			}
-			label="Move To"
-			press_msg="1"
-		}
+	"basic attribute" {
+		clr=14
 	}
+	textix="Specific positions"
+}
+menu {
+	object {
+		x=275
+		y=95
+		width=120
+		height=20
+	}
+	control {
+		chan="$(P)$(R)MOVE_SPECIFICPOS:Index"
+		clr=14
+		bclr=4
+	}
+}
+"message button" {
+	object {
+		x=275
+		y=120
+		width=120
+		height=20
+	}
+	control {
+		chan="$(P)$(R)MOVE_SPECIFICPOS.PROC"
+		clr=14
+		bclr=51
+	}
+	label="Move To"
+	press_msg="1"
 }
 "related display" {
 	object {
@@ -785,201 +794,179 @@ composite {
 		}
 	}
 }
-composite {
+text {
 	object {
 		x=24
+		y=320
+		width=20
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Ty"
+}
+text {
+	object {
+		x=24
+		y=345
+		width=20
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Tz"
+}
+text {
+	object {
+		x=24
+		y=370
+		width=20
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Rx"
+}
+text {
+	object {
+		x=24
+		y=395
+		width=20
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Ry"
+}
+text {
+	object {
+		x=24
+		y=420
+		width=20
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Rz"
+}
+text {
+	object {
+		x=24
+		y=295
+		width=20
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Tx"
+}
+"text update" {
+	object {
+		x=53
+		y=295
+		width=125
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)s_uto_tx_RBV"
+		clr=54
+		bclr=4
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=53
+		y=320
+		width=125
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)s_uto_ty_RBV"
+		clr=54
+		bclr=4
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=53
+		y=345
+		width=125
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)s_uto_tz_RBV"
+		clr=54
+		bclr=4
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=53
+		y=370
+		width=125
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)s_uto_rx_RBV"
+		clr=54
+		bclr=4
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=53
+		y=395
+		width=125
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)s_uto_ry_RBV"
+		clr=54
+		bclr=4
+	}
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=53
+		y=420
+		width=125
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)s_uto_rz_RBV"
+		clr=54
+		bclr=4
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=36
 		y=270
-		width=154
-		height=170
+		width=130
+		height=20
 	}
-	"composite name"=""
-	children {
-		composite {
-			object {
-				x=24
-				y=295
-				width=154
-				height=145
-			}
-			"composite name"=""
-			children {
-				text {
-					object {
-						x=24
-						y=320
-						width=20
-						height=20
-					}
-					"basic attribute" {
-						clr=14
-					}
-					textix="Ty"
-				}
-				text {
-					object {
-						x=24
-						y=345
-						width=20
-						height=20
-					}
-					"basic attribute" {
-						clr=14
-					}
-					textix="Tz"
-				}
-				text {
-					object {
-						x=24
-						y=370
-						width=20
-						height=20
-					}
-					"basic attribute" {
-						clr=14
-					}
-					textix="Rx"
-				}
-				text {
-					object {
-						x=24
-						y=395
-						width=20
-						height=20
-					}
-					"basic attribute" {
-						clr=14
-					}
-					textix="Ry"
-				}
-				text {
-					object {
-						x=24
-						y=420
-						width=20
-						height=20
-					}
-					"basic attribute" {
-						clr=14
-					}
-					textix="Rz"
-				}
-				text {
-					object {
-						x=24
-						y=295
-						width=20
-						height=20
-					}
-					"basic attribute" {
-						clr=14
-					}
-					textix="Tx"
-				}
-				"text update" {
-					object {
-						x=53
-						y=295
-						width=125
-						height=20
-					}
-					monitor {
-						chan="$(P)$(R)s_uto_tx_RBV"
-						clr=53
-						bclr=4
-					}
-					limits {
-					}
-				}
-				"text update" {
-					object {
-						x=53
-						y=320
-						width=125
-						height=20
-					}
-					monitor {
-						chan="$(P)$(R)s_uto_ty_RBV"
-						clr=53
-						bclr=4
-					}
-					limits {
-					}
-				}
-				"text update" {
-					object {
-						x=53
-						y=345
-						width=125
-						height=20
-					}
-					monitor {
-						chan="$(P)$(R)s_uto_tz_RBV"
-						clr=53
-						bclr=4
-					}
-					limits {
-					}
-				}
-				"text update" {
-					object {
-						x=53
-						y=370
-						width=125
-						height=20
-					}
-					monitor {
-						chan="$(P)$(R)s_uto_rx_RBV"
-						clr=53
-						bclr=4
-					}
-					limits {
-					}
-				}
-				"text update" {
-					object {
-						x=53
-						y=395
-						width=125
-						height=20
-					}
-					monitor {
-						chan="$(P)$(R)s_uto_ry_RBV"
-						clr=53
-						bclr=4
-					}
-					limits {
-					}
-				}
-				"text update" {
-					object {
-						x=53
-						y=420
-						width=125
-						height=20
-					}
-					monitor {
-						chan="$(P)$(R)s_uto_rz_RBV"
-						clr=53
-						bclr=4
-					}
-					limits {
-					}
-				}
-			}
-		}
-		text {
-			object {
-				x=36
-				y=270
-				width=130
-				height=20
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="User Position"
-		}
+	"basic attribute" {
+		clr=14
 	}
+	textix="User Position"
 }
 "text update" {
 	object {
@@ -990,7 +977,7 @@ composite {
 	}
 	monitor {
 		chan="$(P)$(R)Drv:CmdReturnCode_RBV"
-		clr=53
+		clr=54
 		bclr=4
 	}
 	align="horiz. centered"
@@ -1006,7 +993,7 @@ composite {
 	}
 	monitor {
 		chan="$(P)$(R)Drv:CmdReturnDescription_RBV"
-		clr=53
+		clr=54
 		bclr=4
 	}
 	format="string"
@@ -1105,7 +1092,7 @@ rectangle {
 		height=30
 	}
 	"basic attribute" {
-		clr=14
+		clr=54
 		fill="outline"
 	}
 }
@@ -1119,5 +1106,18 @@ rectangle {
 	"basic attribute" {
 		clr=14
 		fill="outline"
+	}
+}
+menu {
+	object {
+		x=53
+		y=450
+		width=125
+		height=20
+	}
+	control {
+		chan="$(P)$(R)STATUS_GET.SCAN"
+		clr=14
+		bclr=4
 	}
 }
