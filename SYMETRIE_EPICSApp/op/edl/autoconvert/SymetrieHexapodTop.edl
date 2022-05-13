@@ -5,8 +5,8 @@ minor 0
 release 1
 x 1205
 y 88
-w 367
-h 135
+w 200
+h 100
 font "helvetica-medium-r-18.0"
 ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
@@ -30,17 +30,17 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 137
-y 44
-w 128
+x 38
+y 38
+w 125
 h 25
 fgColor rgb 0 0 0
-bgColor rgb 47872 47872 47872
+bgColor rgb 29440 57088 65280
 topShadowColor rgb 55808 55808 55808
 botShadowColor rgb 17920 17920 17920
 font "helvetica-medium-r-14.0"
 icon
-buttonLabel "Hexapod"
+buttonLabel "Hexapod Main"
 numPvs 2
 numDsps 1
 displayFileName {

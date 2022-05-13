@@ -14,7 +14,7 @@
     <color red="0" green="0" blue="0" />
   </foreground_color>
   <grid_space>5</grid_space>
-  <height>135</height>
+  <height>100</height>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
@@ -27,7 +27,7 @@
   <show_ruler>true</show_ruler>
   <snap_to_geometry>false</snap_to_geometry>
   <widget_type>Display</widget_type>
-  <width>367</width>
+  <width>200</width>
   <x>1205</x>
   <y>88</y>
   <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
@@ -46,7 +46,7 @@
     <alarm_pulsing>false</alarm_pulsing>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <background_color>
-      <color red="187" green="187" blue="187" />
+      <color red="115" green="223" blue="255" />
     </background_color>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <border_color>
@@ -76,14 +76,14 @@
     </scale_options>
     <scripts />
     <style>0</style>
-    <text>Hexapod</text>
+    <text>Hexapod Main</text>
     <toggle_button>false</toggle_button>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <visible>true</visible>
     <widget_type>Action Button</widget_type>
-    <width>128</width>
-    <x>137</x>
-    <y>44</y>
+    <width>125</width>
+    <x>38</x>
+    <y>38</y>
   </widget>
 </display>

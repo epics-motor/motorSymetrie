@@ -3,8 +3,8 @@
   <name>SymetrieHexapodTop</name>
   <x>1205</x>
   <y>88</y>
-  <width>367</width>
-  <height>135</height>
+  <width>200</width>
+  <height>100</height>
   <background_color>
     <color red="187" green="187" blue="187">
     </color>
@@ -24,13 +24,13 @@
         <description>Hexapod</description>
       </action>
     </actions>
-    <text>Hexapod</text>
-    <x>137</x>
-    <y>44</y>
-    <width>128</width>
+    <text>Hexapod Main</text>
+    <x>38</x>
+    <y>38</y>
+    <width>125</width>
     <height>25</height>
     <background_color>
-      <color red="187" green="187" blue="187">
+      <color red="115" green="223" blue="255">
       </color>
     </background_color>
   </widget>

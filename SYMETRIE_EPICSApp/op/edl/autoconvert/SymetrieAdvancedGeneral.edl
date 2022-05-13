@@ -1,0 +1,1572 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 501
+y 140
+w 650
+h 435
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-bold-r-10.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor rgb 0 0 0
+bgColor rgb 47872 47872 47872
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
+snapToGrid
+gridSize 4
+endScreenProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 470
+y 20
+w 160
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Machine position"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 473
+y 70
+w 30
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Ty"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 473
+y 95
+w 30
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Tz"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 473
+y 120
+w 30
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Rx"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 473
+y 145
+w 30
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Ry"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 473
+y 170
+w 30
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Rz"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 473
+y 45
+w 30
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Tx"
+}
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 502
+y 45
+w 125
+h 20
+controlPv "$(P)$(R)s_mtp_tx_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 502
+y 70
+w 125
+h 20
+controlPv "$(P)$(R)s_mtp_ty_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 502
+y 95
+w 125
+h 20
+controlPv "$(P)$(R)s_mtp_tz_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 502
+y 120
+w 125
+h 20
+controlPv "$(P)$(R)s_mtp_rx_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 502
+y 145
+w 125
+h 20
+controlPv "$(P)$(R)s_mtp_ry_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 502
+y 170
+w 125
+h 20
+controlPv "$(P)$(R)s_mtp_rz_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "left"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 460
+y 10
+w 180
+h 190
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
+lineWidth 0
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 45
+w 185
+h 270
+
+beginGroup
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 45
+w 20
+h 270
+
+beginGroup
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 45
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO1:Input1_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 70
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO1:Output1_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 95
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO1:Output2_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 120
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO2:Input1_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 145
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO2:Input2_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 170
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO2:Input3_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 195
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO2:Input4_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 220
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO2:Input5_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 245
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO2:Input6_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 270
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO2:Input7_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 295
+w 20
+h 20
+controlPv "$(P)$(R)s_dio:GPIO2:Input8_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 45
+w 160
+h 270
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 260
+y 70
+w 160
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO1 - Output 1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 260
+y 95
+w 160
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO1 - Output 2"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 270
+y 120
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO2 - Input 1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 270
+y 45
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO1 - Input 1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 270
+y 145
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO2 - Input 2"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 270
+y 170
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO2 - Input 3"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 270
+y 195
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO2 - Input 4"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 270
+y 220
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO2 - Input 5"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 270
+y 245
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO2 - Input 6"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 270
+y 270
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO2 - Input 7"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 270
+y 295
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "GPIO2 - Input 8"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+endGroup
+
+endObjectProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 262
+y 20
+w 180
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Inputs and Outputs"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 250
+y 10
+w 205
+h 315
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
+lineWidth 0
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 45
+w 190
+h 370
+
+beginGroup
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 100
+y 70
+w 110
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Initialized"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 110
+y 95
+w 100
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Control on"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 100
+y 120
+w 110
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "In position"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 80
+y 195
+w 130
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Home complete"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 70
+y 395
+w 140
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Emergency stop"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 40
+y 170
+w 170
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Home task running"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 90
+y 220
+w 120
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Home virtual"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 130
+y 270
+w 80
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Brake on"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 40
+y 295
+w 170
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Motion restricted"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 40
+y 320
+w 170
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Power on encoders"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 60
+y 345
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Power on limits"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 60
+y 370
+w 150
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Power on drives"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 100
+y 245
+w 110
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Phase found"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 160
+y 45
+w 50
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Error"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 20
+y 145
+w 190
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Motion task running"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 97
+y 20
+w 60
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Status"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 10
+w 235
+h 415
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
+lineWidth 0
+endObjectProperties
+
+# (Text Monitor)
+object activeXTextDspClass:noedit
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 330
+y 395
+w 200
+h 20
+controlPv "$(P)$(R)s_action_RBV"
+format "decimal"
+font "helvetica-medium-r-14.0"
+fontAlign "center"
+fgColor rgb 2560 0 47104
+bgColor rgb 47872 47872 47872
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 1
+x 400
+y 370
+w 60
+h 20
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
+useDisplayBg
+value {
+  "Action"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 320
+y 360
+w 220
+h 65
+lineColor rgb 0 0 0
+fillColor rgb 0 0 0
+lineWidth 0
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 45
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:Error_RBV"
+lineColor rgb 0 0 0
+onColor rgb 64768 0 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 70
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:Initialised_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 95
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:ControlOn_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 120
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:InPosition_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 64768 0 0
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 145
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:MotionTaskRunning_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 395
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:EmergencyStop_RBV"
+lineColor rgb 0 0 0
+onColor rgb 64768 0 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 295
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:MotionRestricted_RBV"
+lineColor rgb 0 0 0
+onColor rgb 64768 0 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 170
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:HomeTaskRunning_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 195
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:HomeComplete_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 220
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:HomeVirtual_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 245
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:PhaseFound_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 270
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:BrakeOn_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 320
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:PowerOnEncoders_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 345
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:PowerOnLimits_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+
+# (Byte)
+object ByteClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 370
+w 20
+h 20
+controlPv "$(P)$(R)s_hexa:PowerOnDrives_RBV"
+lineColor rgb 0 0 0
+onColor rgb 0 55296 0
+offColor rgb 47872 47872 47872
+endian "big"
+numBits 2
+shift -1
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 45
+w 185
+h 270
+
+beginGroup
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 425
+y 45
+w 20
+h 270
+
+beginGroup
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 45
+w 160
+h 270
+
+beginGroup
+
+endGroup
+
+endObjectProperties
+
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 45
+w 190
+h 370
+
+beginGroup
+
+endGroup
+
+endObjectProperties
+
+

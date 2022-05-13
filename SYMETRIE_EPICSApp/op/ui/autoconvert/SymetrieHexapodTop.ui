@@ -6,8 +6,8 @@
         <rect>
             <x>1205</x>
             <y>88</y>
-            <width>367</width>
-            <height>135</height>
+            <width>200</width>
+            <height>100</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -109,9 +109,9 @@ border-radius: 2px;
         <widget class="caRelatedDisplay" name="caRelatedDisplay_0">
             <property name="geometry">
                 <rect>
-                    <x>137</x>
-                    <y>44</y>
-                    <width>128</width>
+                    <x>38</x>
+                    <y>38</y>
+                    <width>125</width>
                     <height>25</height>
                 </rect>
             </property>
@@ -124,13 +124,13 @@ border-radius: 2px;
             </property>
             <property name="background">
                 <color alpha="255">
-                    <red>187</red>
-                    <green>187</green>
-                    <blue>187</blue>
+                    <red>115</red>
+                    <green>223</green>
+                    <blue>255</blue>
                 </color>
             </property>
             <property name="label">
-                <string>Hexapod</string>
+                <string>Hexapod Main</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
