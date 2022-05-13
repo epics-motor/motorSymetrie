@@ -106,6 +106,7 @@ record(ai, "$(P)$(R)s_pos_ax_$(AXIS)_RBV") {
   field(DTYP, "asynFloat64")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),0)SYM_HEX_S_POS_AX_$(AXIS)")
+  field(PREC, "4")
   field(EGU, "mm")
 }
 
