@@ -119,83 +119,6 @@ rectangle {
 }
 rectangle {
 	object {
-		x=27
-		y=195
-		width=20
-		height=20
-	}
-	"basic attribute" {
-		clr=20
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(R)s_hexa:EmergencyStop_RBV"
-	}
-}
-rectangle {
-	object {
-		x=27
-		y=220
-		width=20
-		height=20
-	}
-	"basic attribute" {
-		clr=20
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(R)s_hexa:Error_RBV"
-	}
-}
-rectangle {
-	object {
-		x=27
-		y=195
-		width=20
-		height=20
-	}
-	"basic attribute" {
-		clr=15
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		calc="A"
-		chan="$(P)$(R)s_hexa:EmergencyStop_RBV"
-	}
-}
-rectangle {
-	object {
-		x=27
-		y=220
-		width=20
-		height=20
-	}
-	"basic attribute" {
-		clr=15
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		calc="A"
-		chan="$(P)$(R)s_hexa:Error_RBV"
-	}
-}
-rectangle {
-	object {
-		x=27
-		y=170
-		width=20
-		height=20
-	}
-	"basic attribute" {
-		clr=20
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(R)s_hexa:HomeComplete_RBV"
-	}
-}
-rectangle {
-	object {
 		x=250
 		y=60
 		width=290
@@ -208,7 +131,7 @@ rectangle {
 }
 text {
 	object {
-		x=27
+		x=76
 		y=70
 		width=60
 		height=20
@@ -218,225 +141,11 @@ text {
 	}
 	textix="Status"
 }
-composite {
-	object {
-		x=27
-		y=95
-		width=20
-		height=20
-	}
-	"composite name"=""
-	children {
-		rectangle {
-			object {
-				x=27
-				y=95
-				width=20
-				height=20
-			}
-			"basic attribute" {
-				clr=15
-			}
-			"dynamic attribute" {
-				vis="if not zero"
-				calc="A"
-				chan="$(P)$(R)s_hexa:Initialised_RBV"
-			}
-		}
-		rectangle {
-			object {
-				x=27
-				y=95
-				width=20
-				height=20
-			}
-			"basic attribute" {
-				clr=20
-			}
-			"dynamic attribute" {
-				vis="if zero"
-				chan="$(P)$(R)s_hexa:Initialised_RBV"
-			}
-		}
-	}
-}
-composite {
-	object {
-		x=27
-		y=120
-		width=20
-		height=20
-	}
-	"composite name"=""
-	children {
-		rectangle {
-			object {
-				x=27
-				y=120
-				width=20
-				height=20
-			}
-			"basic attribute" {
-				clr=15
-			}
-			"dynamic attribute" {
-				vis="if not zero"
-				calc="A"
-				chan="$(P)$(R)s_hexa:ControlOn_RBV"
-			}
-		}
-		rectangle {
-			object {
-				x=27
-				y=120
-				width=20
-				height=20
-			}
-			"basic attribute" {
-				clr=20
-			}
-			"dynamic attribute" {
-				vis="if zero"
-				chan="$(P)$(R)s_hexa:ControlOn_RBV"
-			}
-		}
-	}
-}
-composite {
-	object {
-		x=27
-		y=145
-		width=20
-		height=20
-	}
-	"composite name"=""
-	children {
-		rectangle {
-			object {
-				x=27
-				y=145
-				width=20
-				height=20
-			}
-			"basic attribute" {
-				clr=15
-			}
-			"dynamic attribute" {
-				vis="if not zero"
-				calc="A"
-				chan="$(P)$(R)s_hexa:InPosition_RBV"
-			}
-		}
-		rectangle {
-			object {
-				x=27
-				y=145
-				width=20
-				height=20
-			}
-			"basic attribute" {
-				clr=20
-			}
-			"dynamic attribute" {
-				vis="if zero"
-				chan="$(P)$(R)s_hexa:InPosition_RBV"
-			}
-		}
-	}
-}
-rectangle {
-	object {
-		x=27
-		y=170
-		width=20
-		height=20
-	}
-	"basic attribute" {
-		clr=15
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		calc="A"
-		chan="$(P)$(R)s_hexa:HomeComplete_RBV"
-	}
-}
-text {
-	object {
-		x=52
-		y=95
-		width=110
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Initialized"
-}
-text {
-	object {
-		x=52
-		y=120
-		width=100
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Control on"
-}
-text {
-	object {
-		x=52
-		y=145
-		width=110
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="In position"
-}
-text {
-	object {
-		x=52
-		y=170
-		width=130
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Home complete"
-}
-text {
-	object {
-		x=52
-		y=195
-		width=140
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Emergency stop"
-}
-text {
-	object {
-		x=52
-		y=220
-		width=50
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Error"
-}
 "message button" {
 	object {
-		x=328
+		x=325
 		y=20
-		width=60
+		width=100
 		height=25
 	}
 	control {
@@ -449,7 +158,7 @@ text {
 }
 "message button" {
 	object {
-		x=407
+		x=430
 		y=20
 		width=100
 		height=25
@@ -464,9 +173,9 @@ text {
 }
 "message button" {
 	object {
-		x=251
+		x=220
 		y=20
-		width=60
+		width=100
 		height=25
 	}
 	control {
@@ -479,9 +188,9 @@ text {
 }
 "related display" {
 	object {
-		x=43
+		x=10
 		y=20
-		width=67
+		width=100
 		height=25
 	}
 	display[0] {
@@ -509,49 +218,24 @@ text {
 		name="SymetrieConfigCS.adl"
 		args="P=$(P),R=$(R)"
 	}
+	display[5] {
+		label="General status"
+		name="SymetrieAdvancedGeneral.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[6] {
+		label="Actuator status"
+		name="SymetrieAdvancedActuator.adl"
+		args="P=$(P),R=$(R)"
+	}
+	display[7] {
+		label="Error status"
+		name="SymetrieAdvancedError.adl"
+		args="P=$(P),R=$(R)"
+	}
 	clr=14
 	bclr=51
 	label="Menu"
-}
-text {
-	object {
-		x=275
-		y=70
-		width=180
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="Specific positions"
-}
-menu {
-	object {
-		x=275
-		y=95
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)$(R)MOVE_SPECIFICPOS:Index"
-		clr=14
-		bclr=4
-	}
-}
-"message button" {
-	object {
-		x=275
-		y=120
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)$(R)MOVE_SPECIFICPOS.PROC"
-		clr=14
-		bclr=51
-	}
-	label="Move To"
-	press_msg="1"
 }
 "related display" {
 	object {
@@ -1024,66 +708,6 @@ rectangle {
 		fill="outline"
 	}
 }
-composite {
-	object {
-		x=130
-		y=20
-		width=100
-		height=25
-	}
-	"composite name"=""
-	children {
-		"message button" {
-			object {
-				x=130
-				y=20
-				width=100
-				height=25
-			}
-			control {
-				chan="$(P)$(R)CONTROLON.PROC"
-				clr=14
-				bclr=51
-			}
-			label="Control On"
-			press_msg="1"
-		}
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(R)s_hexa:ControlOn_RBV"
-	}
-}
-composite {
-	object {
-		x=130
-		y=20
-		width=100
-		height=25
-	}
-	"composite name"=""
-	children {
-		"message button" {
-			object {
-				x=130
-				y=20
-				width=100
-				height=25
-			}
-			control {
-				chan="$(P)$(R)CONTROLOFF.PROC"
-				clr=14
-				bclr=51
-			}
-			label="Control Off"
-			press_msg="1"
-		}
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(R)s_hexa:ControlOn_RBV"
-	}
-}
 rectangle {
 	object {
 		x=5
@@ -1119,5 +743,327 @@ menu {
 		chan="$(P)$(R)STATUS_GET.SCAN"
 		clr=14
 		bclr=4
+	}
+}
+composite {
+	object {
+		x=305
+		y=70
+		width=180
+		height=70
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=305
+				y=70
+				width=180
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Specific positions"
+		}
+		composite {
+			object {
+				x=335
+				y=95
+				width=120
+				height=45
+			}
+			"composite name"=""
+			children {
+				menu {
+					object {
+						x=335
+						y=95
+						width=120
+						height=20
+					}
+					control {
+						chan="$(P)$(R)MOVE_SPECIFICPOS:Index"
+						clr=14
+						bclr=4
+					}
+				}
+				"message button" {
+					object {
+						x=335
+						y=120
+						width=120
+						height=20
+					}
+					control {
+						chan="$(P)$(R)MOVE_SPECIFICPOS.PROC"
+						clr=14
+						bclr=51
+					}
+					label="Move To"
+					press_msg="1"
+				}
+			}
+		}
+	}
+}
+composite {
+	object {
+		x=24
+		y=95
+		width=165
+		height=145
+	}
+	"composite name"=""
+	children {
+		composite {
+			object {
+				x=24
+				y=95
+				width=20
+				height=145
+			}
+			"composite name"=""
+			children {
+				byte {
+					object {
+						x=24
+						y=95
+						width=20
+						height=20
+					}
+					monitor {
+						chan="$(P)$(R)s_hexa:Initialised_RBV"
+						clr=15
+						bclr=20
+					}
+					sbit=0
+				}
+				byte {
+					object {
+						x=24
+						y=120
+						width=20
+						height=20
+					}
+					monitor {
+						chan="$(P)$(R)s_hexa:ControlOn_RBV"
+						clr=15
+						bclr=20
+					}
+					sbit=0
+				}
+				byte {
+					object {
+						x=24
+						y=145
+						width=20
+						height=20
+					}
+					monitor {
+						chan="$(P)$(R)s_hexa:InPosition_RBV"
+						clr=15
+						bclr=20
+					}
+					sbit=0
+				}
+				byte {
+					object {
+						x=24
+						y=170
+						width=20
+						height=20
+					}
+					monitor {
+						chan="$(P)$(R)s_hexa:HomeComplete_RBV"
+						clr=15
+						bclr=20
+					}
+					sbit=0
+				}
+				byte {
+					object {
+						x=24
+						y=195
+						width=20
+						height=20
+					}
+					monitor {
+						chan="$(P)$(R)s_hexa:EmergencyStop_RBV"
+						clr=20
+						bclr=15
+					}
+					sbit=0
+				}
+				byte {
+					object {
+						x=24
+						y=220
+						width=20
+						height=20
+					}
+					monitor {
+						chan="$(P)$(R)s_hexa:Error_RBV"
+						clr=20
+						bclr=15
+					}
+					sbit=0
+				}
+			}
+		}
+		composite {
+			object {
+				x=49
+				y=95
+				width=140
+				height=145
+			}
+			"composite name"=""
+			children {
+				text {
+					object {
+						x=49
+						y=95
+						width=110
+						height=20
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="Initialized"
+				}
+				text {
+					object {
+						x=49
+						y=120
+						width=100
+						height=20
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="Control on"
+				}
+				text {
+					object {
+						x=49
+						y=145
+						width=110
+						height=20
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="In position"
+				}
+				text {
+					object {
+						x=49
+						y=170
+						width=130
+						height=20
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="Home complete"
+				}
+				text {
+					object {
+						x=49
+						y=195
+						width=140
+						height=20
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="Emergency stop"
+				}
+				text {
+					object {
+						x=49
+						y=220
+						width=50
+						height=20
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="Error"
+				}
+			}
+		}
+	}
+}
+composite {
+	object {
+		x=115
+		y=20
+		width=100
+		height=25
+	}
+	"composite name"=""
+	children {
+		composite {
+			object {
+				x=115
+				y=20
+				width=100
+				height=25
+			}
+			"composite name"=""
+			children {
+				"message button" {
+					object {
+						x=115
+						y=20
+						width=100
+						height=25
+					}
+					control {
+						chan="$(P)$(R)CONTROLON.PROC"
+						clr=14
+						bclr=51
+					}
+					label="Control On"
+					press_msg="1"
+				}
+			}
+			"dynamic attribute" {
+				vis="if zero"
+				chan="$(P)$(R)s_hexa:ControlOn_RBV"
+			}
+		}
+		composite {
+			object {
+				x=115
+				y=20
+				width=100
+				height=25
+			}
+			"composite name"=""
+			children {
+				"message button" {
+					object {
+						x=115
+						y=20
+						width=100
+						height=25
+					}
+					control {
+						chan="$(P)$(R)CONTROLOFF.PROC"
+						clr=14
+						bclr=51
+					}
+					label="Control Off"
+					press_msg="1"
+				}
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				chan="$(P)$(R)s_hexa:ControlOn_RBV"
+			}
+		}
 	}
 }
