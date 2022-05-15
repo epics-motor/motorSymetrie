@@ -320,8 +320,7 @@ class SymetrieHexapod
 
 public:
     SymetrieHexapod(const char *portName, const char *lowLevelPortName, int lowLevelPortAddress,
-                   int channels, double movingPollPeriod,
-                   double idlePollPeriod);
+                    double movingPollPeriod, double idlePollPeriod);
     virtual ~SymetrieHexapod();
 
     void configTask();
