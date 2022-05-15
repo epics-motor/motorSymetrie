@@ -65,7 +65,6 @@ extern "C"
 asynStatus symHexCreateController(const char *portName,
                                   const char *lowLevelPortName,
                                   int lowLevelPortAddress,
-                                  int channels,
                                   double movingPollPeriod,
                                   double idlePollPeriod);
 }
@@ -82,13 +81,12 @@ asynStatus symHexCreateController(const char *portName,
 SymetrieHexapod::SymetrieHexapod(const char *portName,
                                  const char *lowLevelPortName,
                                  int lowLevelPortAddress,
-                                 int channels,
-                                 double movingPollPeriod, 
+                                  double movingPollPeriod, 
                                  double idlePollPeriod)
         : pmacController(portName,
                          lowLevelPortName,
                          lowLevelPortAddress,
-                         channels,
+                         20, // Not sure what this channels argument does
                          movingPollPeriod,
                          idlePollPeriod),
         movingPollPeriod_(movingPollPeriod),
@@ -2123,17 +2121,14 @@ asynStatus
 symHexCreateController(const char *portName,
                        const char *lowLevelPortName, 
                        int lowLevelPortAddress,
-                       int channels,
                        double movingPollPeriod,
                        double idlePollPeriod) 
 {
-  if (channels == 0) channels = 20;
   if (movingPollPeriod == 0) movingPollPeriod = 5.;
   if (idlePollPeriod == 0) idlePollPeriod = 5.;
   new SymetrieHexapod(portName,
                       lowLevelPortName,
                       lowLevelPortAddress,
-                      channels,
                       movingPollPeriod,
                       idlePollPeriod);
   return asynSuccess;
@@ -2145,19 +2140,17 @@ symHexCreateController(const char *portName,
 static const iocshArg symHexCreateControllerArg0 = {"Controller port name", iocshArgString};
 static const iocshArg symHexCreateControllerArg1 = {"Low level port name", iocshArgString};
 static const iocshArg symHexCreateControllerArg2 = {"Low level port address", iocshArgInt};
-static const iocshArg symHexCreateControllerArg3 = {"Channels", iocshArgInt};
-static const iocshArg symHexCreateControllerArg4 = {"Moving poll period", iocshArgDouble};
-static const iocshArg symHexCreateControllerArg5 = {"Idle poll period", iocshArgDouble};
+static const iocshArg symHexCreateControllerArg3 = {"Moving poll period", iocshArgDouble};
+static const iocshArg symHexCreateControllerArg4 = {"Idle poll period", iocshArgDouble};
 static const iocshArg *const symHexCreateControllerArgs[] = {&symHexCreateControllerArg0,
                                                              &symHexCreateControllerArg1,
                                                              &symHexCreateControllerArg2,
                                                              &symHexCreateControllerArg3,
-                                                             &symHexCreateControllerArg4,
-                                                             &symHexCreateControllerArg5};
-static const iocshFuncDef configsymHexCreateController = {"symetrieHexapod", 6,
+                                                             &symHexCreateControllerArg4};
+static const iocshFuncDef configsymHexCreateController = {"symetrieHexapod", 5,
                                                           symHexCreateControllerArgs};
 static void configsymHexCreateControllerCallFunc(const iocshArgBuf *args) {
-  symHexCreateController(args[0].sval, args[1].sval, args[2].ival, args[3].ival, args[4].dval, args[5].dval);
+  symHexCreateController(args[0].sval, args[1].sval, args[2].ival, args[4].dval, args[5].dval);
 }
 
 
