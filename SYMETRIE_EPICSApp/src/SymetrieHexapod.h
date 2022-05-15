@@ -15,6 +15,10 @@
 #include <math.h>
 #include "pmacController.h"
 
+#define NUM_MOTOR_AXES 6
+// This converts motor record integer "steps" into hexapod user units
+#define MOTOR_SCALE_FACTOR 1.e4
+
 #define SYM_HEX_FirstParamString           "SYM_HEX_FIRSTPARAM"
 #define SYM_HEX_LastParamString            "SYM_HEX_LASTPARAM"
 
@@ -288,6 +292,29 @@
 #define SYM_HEX_VERS_SYS_CFGString         "SYM_HEX_VERS_SYS_CFG"
 
 
+class epicsShareClass SymetrieAxis : public pmacAxis
+{
+public:
+    /* These are the methods we override from the base class */
+    SymetrieAxis(class SymetrieHexapod *pC, int axis);
+    void report(FILE *fp, int level);
+    asynStatus move(double position, int relative, double min_velocity, double max_velocity, double acceleration);
+    asynStatus moveVelocity(double min_velocity, double max_velocity, double acceleration);
+    asynStatus home(double min_velocity, double max_velocity, double acceleration, int forwards);
+    asynStatus stop(double acceleration);
+    asynStatus poll(bool *moving);
+    asynStatus setPosition(double position);
+    asynStatus setClosedLoop(bool closedLoop);
+
+private:
+    asynStatus setVelocityAndAcceleration(double velocity, double acceleration);
+    SymetrieHexapod *pC_;          /**< Pointer to the asynMotorController to which this axis belongs.
+                                     *   Abbreviated because it is used very frequently */
+friend class SymetrieHexapod;
+};
+
+
+
 class SymetrieHexapod
         : public pmacController {
 
@@ -316,7 +343,7 @@ public:
     int applyConfigKinematic();
     int applyConfigTuning();
     int applyConfigPower();
-	
+
     void applyConfig();
     void readErrors();
     int getConfigItem(const std::string& cmd, int num_params, double *params);
@@ -335,6 +362,15 @@ public:
     asynStatus writeInt32(asynUser *pasynUser, epicsInt32 value);
     asynStatus writeFloat64(asynUser *pasynUser, epicsFloat64 value);
     asynStatus writeOctet(asynUser *pasynUser, const char *value, size_t nChars, size_t *nActual);
+    
+    // asynMotorController methods we override
+    void report(FILE *fp, int level);
+    asynStatus poll();
+    SymetrieAxis* getAxis(asynUser *pasynUser);
+    SymetrieAxis* getAxis(int axisNo);
+
+    friend class SymetrieAxis;
+
 
 protected:
     int SYM_HEX_FirstParam_;
@@ -592,9 +628,9 @@ protected:
 
     int current_error_;
     int no_of_errors_;
+    double movingPollPeriod_;
+    double idlePollPeriod_;
 };
-
-#define NUM_SYM_HEX_PARAMS (&LAST_SYM_HEX_PARAM - &FIRST_SYM_HEX_PARAM + 1)
 
 #endif /* SymetrieHexapod_H */
 
