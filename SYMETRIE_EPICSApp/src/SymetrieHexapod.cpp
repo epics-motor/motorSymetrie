@@ -74,14 +74,13 @@ asynStatus symHexCreateController(const char *portName,
  * @param portName The Asyn port name to use (that the motor record connects to).
  * @param lowLevelPortName The name of the low level port that has already been created, to enable comms to the controller.
  * @param lowLevelPortAddress The asyn address for the low level port
- * @param numAxes The number of axes on the controller (1 based)
  * @param movingPollPeriod The time (in milliseconds) between polling when axes are moving
  * @param movingPollPeriod The time (in milliseconds) between polling when axes are idle
  */
 SymetrieHexapod::SymetrieHexapod(const char *portName,
                                  const char *lowLevelPortName,
                                  int lowLevelPortAddress,
-                                  double movingPollPeriod, 
+                                 double movingPollPeriod, 
                                  double idlePollPeriod)
         : pmacController(portName,
                          lowLevelPortName,
@@ -373,7 +372,7 @@ SymetrieHexapod::SymetrieHexapod(const char *portName,
     setDoubleParam(SYM_HEX_MOVE_TX_DMD_ + axis, position);
     new SymetrieAxis(this, axis);
   }
-  
+
   startPoller(movingPollPeriod, idlePollPeriod, 2);
 
 }
@@ -2150,7 +2149,7 @@ static const iocshArg *const symHexCreateControllerArgs[] = {&symHexCreateContro
 static const iocshFuncDef configsymHexCreateController = {"symetrieHexapod", 5,
                                                           symHexCreateControllerArgs};
 static void configsymHexCreateControllerCallFunc(const iocshArgBuf *args) {
-  symHexCreateController(args[0].sval, args[1].sval, args[2].ival, args[4].dval, args[5].dval);
+  symHexCreateController(args[0].sval, args[1].sval, args[2].ival, args[3].dval, args[4].dval);
 }
 
 
