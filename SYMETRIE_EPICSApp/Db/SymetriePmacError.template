@@ -26,6 +26,7 @@ record(waveform, "$(P)$(R)Drv:$(ADDR):ErrorDescription_RBV") {
 
 record(ai, "$(P)$(R)ERR_INFO:$(ADDR):Time") {
   field(DTYP, "asynFloat64")
+  field(PREC, "2")
   field(SCAN, "I/O Intr")
   field(INP, "@asyn($(PORT),$(ADDR))SYM_HEX_ERROR_TIME")
 }

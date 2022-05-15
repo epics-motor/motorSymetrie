@@ -1,0 +1,1957 @@
+
+file {
+	name="/home/epics/devel/motor-7-0/modules/motorSymetrie/SYMETRIE_EPICSApp/op/adl/SymetrieAdvancedError.adl"
+	version=030109
+}
+display {
+	object {
+		x=598
+		y=317
+		width=760
+		height=770
+	}
+	clr=14
+	bclr=4
+	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=0
+}
+"color map" {
+	ncolors=65
+	colors {
+		ffffff,
+		ececec,
+		dadada,
+		c8c8c8,
+		bbbbbb,
+		aeaeae,
+		9e9e9e,
+		919191,
+		858585,
+		787878,
+		696969,
+		5a5a5a,
+		464646,
+		2d2d2d,
+		000000,
+		00d800,
+		1ebb00,
+		339900,
+		2d7f00,
+		216c00,
+		fd0000,
+		de1309,
+		be190b,
+		a01207,
+		820400,
+		5893ff,
+		597ee1,
+		4b6ec7,
+		3a5eab,
+		27548d,
+		fbf34a,
+		f9da3c,
+		eeb62b,
+		e19015,
+		cd6100,
+		ffb0ff,
+		d67fe2,
+		ae4ebc,
+		8b1a96,
+		610a75,
+		a4aaff,
+		8793e2,
+		6a73c1,
+		4d52a4,
+		343386,
+		c7bb6d,
+		b79d5c,
+		a47e3c,
+		7d5627,
+		58340f,
+		99ffff,
+		73dfff,
+		4ea5f9,
+		2a63e4,
+		0a00b8,
+		ebf1b5,
+		d4db9d,
+		bbc187,
+		a6a462,
+		8b8239,
+		73ff6b,
+		52da3b,
+		3cb420,
+		289315,
+		1a7309,
+	}
+}
+text {
+	object {
+		x=249
+		y=10
+		width=252
+		height=25
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Symetrie Error Status"
+}
+text {
+	object {
+		x=45
+		y=40
+		width=40
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Time"
+}
+text {
+	object {
+		x=130
+		y=40
+		width=100
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Error code"
+}
+text {
+	object {
+		x=410
+		y=40
+		width=170
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Error description"
+}
+rectangle {
+	object {
+		x=125
+		y=63
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=68
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=68
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=63
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=68
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=63
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=98
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=103
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:1:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=103
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:1:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=98
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=103
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:1:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=98
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=133
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=138
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=138
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=133
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=138
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=133
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=168
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=173
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=173
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=168
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=173
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=168
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=203
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=208
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=208
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=203
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=208
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=203
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=238
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=243
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=243
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=238
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=243
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=238
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=273
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=278
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=278
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=273
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=278
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=273
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=308
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=313
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=313
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=308
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=313
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=308
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=343
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=348
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=348
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=343
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=348
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=343
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=378
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=383
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=383
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=378
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=383
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=378
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=413
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=418
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=418
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=413
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=418
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=413
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=448
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=453
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=453
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=448
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=453
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=448
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=483
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=488
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=488
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=483
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=488
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=483
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=518
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=523
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=523
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=518
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=523
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=518
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=553
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=558
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=558
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=553
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=558
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=553
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=588
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=593
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=593
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=588
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=593
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=588
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=623
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=628
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=628
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=623
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=628
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=623
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=658
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=663
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=663
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=658
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=663
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=658
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=693
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=698
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=698
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=693
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=698
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=693
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}
+rectangle {
+	object {
+		x=125
+		y=728
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=130
+		y=733
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Code"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text update" {
+	object {
+		x=15
+		y=733
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=10
+		y=728
+		width=110
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+	"dynamic attribute" {
+		chan="$(P)$(R)ERR_INFO:0:Time"
+	}
+}
+"text update" {
+	object {
+		x=245
+		y=733
+		width=500
+		height=20
+	}
+	monitor {
+		chan="$(P)$(R)Drv:0:ErrorDescription_RBV"
+		clr=54
+		bclr=4
+	}
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+rectangle {
+	object {
+		x=240
+		y=728
+		width=510
+		height=30
+	}
+	"basic attribute" {
+		clr=14
+		fill="outline"
+	}
+}

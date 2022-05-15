@@ -1,11 +1,5 @@
 TOP = ../..
 include $(TOP)/configure/CONFIG
-
+ARCH = $(EPICS_HOST_ARCH)
 TARGETS = envPaths
-SCRIPTS += ../stHexapodDemo.sh
-SCRIPTS += envPaths
-SCRIPTS += stHexapodDemo.boot
-
 include $(TOP)/configure/RULES.ioc
-include $(TOP)/configure/RULES
-
