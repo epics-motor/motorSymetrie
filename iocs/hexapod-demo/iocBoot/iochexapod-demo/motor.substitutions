@@ -1,0 +1,12 @@
+file "$(MOTOR)/db/asyn_motor.db"
+{
+pattern
+{P,          N,   M,         DTYP,     PORT,   ADDR, DESC,   EGU,   DIR,   VELO,  VBAS, ACCL,  BDST, BVEL, BACC,  MRES,  PREC,   DHLM,  DLLM, INIT}
+{SYM:HEX01:, 1, "m$(N)", "asynMotor",  HEXAPOD,  0, "Tx",      mm,  Pos,    2.0,   0.0,  0.10,    0,    1,   .2,  1.e-4,    4,    20,   -20,    ""}
+{SYM:HEX01:, 2, "m$(N)", "asynMotor",  HEXAPOD,  1, "Ty",      mm,  Pos,    2.0,   0.0,  0.10,    0,    1,   .2,  1.e-4,    4,    20,   -20,    ""}
+{SYM:HEX01:, 3, "m$(N)", "asynMotor",  HEXAPOD,  2, "Tz",      mm,  Pos,    2.0,   0.0,  0.10,    0,    1,   .2,  1.e-4,    4,    20,   -20,    ""}
+{SYM:HEX01:, 4, "m$(N)", "asynMotor",  HEXAPOD,  3, "Rx",     deg,  Pos,    2.0,   0.0,  0.10,    0,    1,   .2,  1.e-4,    4,    15,   -15,    ""}
+{SYM:HEX01:, 5, "m$(N)", "asynMotor",  HEXAPOD,  4, "Ry",     deg,  Pos,    2.0,   0.0,  0.10,    0,    1,   .2,  1.e-4,    4,    15,   -15,    ""}
+{SYM:HEX01:, 6, "m$(N)", "asynMotor",  HEXAPOD,  5, "Rz",     deg,  Pos,    2.0,   0.0,  0.10,    0,    1,   .2,  1.e-4,    4,    15,   -15,    ""}
+}
+
