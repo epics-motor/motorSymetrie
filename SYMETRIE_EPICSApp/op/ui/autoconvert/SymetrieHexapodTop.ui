@@ -4,8 +4,8 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>1205</x>
-            <y>88</y>
+            <x>967</x>
+            <y>167</y>
             <width>200</width>
             <height>100</height>
         </rect>
@@ -136,16 +136,16 @@ border-radius: 2px;
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>Hexapod</string>
+                <string>Hexapod main;Motors</string>
             </property>
             <property name="files">
-                <string>SymetrieHexapodMain.adl</string>
+                <string>SymetrieHexapodMain.adl;motor6x.adl</string>
             </property>
             <property name="args">
-                <string>P=SYM:,R=HEX01:</string>
+                <string>P=SYM:,R=HEX01:;P=SYM:HEX01:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6</string>
             </property>
             <property name="removeParent">
-                <string>false</string>
+                <string>false;false</string>
             </property>
         </widget>
         <zorder>caRelatedDisplay_0</zorder>

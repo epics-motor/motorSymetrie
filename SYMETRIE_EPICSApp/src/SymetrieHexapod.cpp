@@ -13,9 +13,9 @@
 #include <iocsh.h>
 #include <drvSup.h>
 #include <registryFunction.h>
-#include "SymetrieHexapod.h"
-#include <epicsExport.h>
 #include <sstream>
+#include <epicsExport.h>
+#include "SymetrieHexapod.h"
 
 #define CHAR_ARRAY_SIZE 2048
 
@@ -64,7 +64,9 @@ extern "C"
 {
 asynStatus symHexCreateController(const char *portName,
                                   const char *lowLevelPortName,
-                                  int lowLevelPortAddress);
+                                  int lowLevelPortAddress,
+                                  double movingPollPeriod,
+                                  double idlePollPeriod);
 }
 
 /**
@@ -72,22 +74,23 @@ asynStatus symHexCreateController(const char *portName,
  * @param portName The Asyn port name to use (that the motor record connects to).
  * @param lowLevelPortName The name of the low level port that has already been created, to enable comms to the controller.
  * @param lowLevelPortAddress The asyn address for the low level port
- * @param numAxes The number of axes on the controller (1 based)
  * @param movingPollPeriod The time (in milliseconds) between polling when axes are moving
  * @param movingPollPeriod The time (in milliseconds) between polling when axes are idle
  */
 SymetrieHexapod::SymetrieHexapod(const char *portName,
                                  const char *lowLevelPortName,
                                  int lowLevelPortAddress,
-                                 int channels,
                                  double movingPollPeriod, 
                                  double idlePollPeriod)
         : pmacController(portName,
                          lowLevelPortName,
                          lowLevelPortAddress,
-                         channels,
+                         20, // Not sure what this channels argument does
                          movingPollPeriod,
-                         idlePollPeriod) {
+                         idlePollPeriod),
+        movingPollPeriod_(movingPollPeriod),
+        idlePollPeriod_(idlePollPeriod)
+{
   static const char *functionName = "SymetrieHexapod::SymetrieHexapod";
   asynPrint(this->pasynUserSelf, ASYN_TRACE_FLOW, "%s Constructor.\n", functionName);
 
@@ -356,18 +359,21 @@ SymetrieHexapod::SymetrieHexapod(const char *portName,
   createParam(SYM_HEX_VERS_SYS_NUMString,    asynParamInt32,   &SYM_HEX_VERS_SYS_NUM_);
   createParam(SYM_HEX_VERS_SYS_CFGString,    asynParamInt32,   &SYM_HEX_VERS_SYS_CFG_);
 
-  setIntegerParam(SYM_HEX_SPC_MOVE_DMD_, 1);
-  setDoubleParam(SYM_HEX_MOVE_TX_DMD_, 0.0);
-  setDoubleParam(SYM_HEX_MOVE_TY_DMD_, 0.0);
-  setDoubleParam(SYM_HEX_MOVE_TZ_DMD_, 0.0);
-  setDoubleParam(SYM_HEX_MOVE_RX_DMD_, 0.0);
-  setDoubleParam(SYM_HEX_MOVE_RY_DMD_, 0.0);
-  setDoubleParam(SYM_HEX_MOVE_RZ_DMD_, 0.0);
-  setIntegerParam(SYM_HEX_MOVE_TYPE_, 0);
-
   getVersion();
   readAllConfig();
   readStatus();
+  setIntegerParam(SYM_HEX_SPC_MOVE_DMD_, 1);
+  setIntegerParam(SYM_HEX_MOVE_TYPE_, 0);
+  
+  // Set the demand position for each axis equal to the current readback and create SymetrieAxis objects
+  for (int axis=0; axis<NUM_MOTOR_AXES; axis++) {
+    double position;
+    getDoubleParam(SYM_HEX_S_UTO_TX_ + axis, &position);
+    setDoubleParam(SYM_HEX_MOVE_TX_DMD_ + axis, position);
+    new SymetrieAxis(this, axis);
+  }
+
+  startPoller(movingPollPeriod, idlePollPeriod, 2);
 
 }
 
@@ -375,7 +381,6 @@ void SymetrieHexapod::readStatus()
 {
   char response[CHAR_ARRAY_SIZE];
   std::vector<std::string> vals;
-  this->lock();
   // First read all of the status
   immediateWriteRead("s_hexa,50,1", response);
   std::string sresp(response);
@@ -511,14 +516,12 @@ void SymetrieHexapod::readStatus()
 
     callParamCallbacks();
   }
-  this->unlock();
 }
 
 void SymetrieHexapod::readAllConfig()
 {
   double values[13];
   int ivalues[13];
-  this->lock();
 
   getConfigItem("C_CFG_SAVE", 1, ivalues);
   setIntegerParam(SYM_HEX_CFG_SAVE_, ivalues[0]);
@@ -625,8 +628,6 @@ void SymetrieHexapod::readAllConfig()
   setIntegerParam(SYM_HEX_CFG_POWER_AUTO_, ivalues[1]);
   
   callParamCallbacks();
-
-  this->unlock();
 }
 
 
@@ -634,7 +635,6 @@ int SymetrieHexapod::applyConfigSafety()
 {
   int ivalues[13];
   int status = 0;
-  this->lock();
 
   // Read the safety input parameter and apply
   getIntegerParam(SYM_HEX_SAFETY_INPUT_DMD_, &ivalues[0]);
@@ -643,7 +643,6 @@ int SymetrieHexapod::applyConfigSafety()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_SAFETYINPUT failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -651,7 +650,6 @@ int SymetrieHexapod::applyConfigChannel()
 {
   int ivalues[13];
   int status = 0;
-  this->lock();
 
   // Read the channel parameters and apply them
   getIntegerParam(SYM_HEX_CHANNEL_1_DMD_, &ivalues[0]);
@@ -665,7 +663,6 @@ int SymetrieHexapod::applyConfigChannel()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_CHANNEL failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -673,7 +670,6 @@ int SymetrieHexapod::applyConfigSpeed()
 {
   double values[13];
   int status = 0;
-  this->lock();
 
   // Read the velocity parameters and apply them
   getDoubleParam(SYM_HEX_VT_DMD_, &values[0]);
@@ -683,7 +679,6 @@ int SymetrieHexapod::applyConfigSpeed()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_SPEED failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -691,7 +686,6 @@ int SymetrieHexapod::applyConfigTa()
 {
   double values[13];
   int status = 0;
-  this->lock();
 
   // Read the acceleration parameters and apply them
   getDoubleParam(SYM_HEX_TA_DMD_, &values[0]);
@@ -700,7 +694,6 @@ int SymetrieHexapod::applyConfigTa()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_TA failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -708,7 +701,6 @@ int SymetrieHexapod::applyConfigCS()
 {
   double values[13];
   int status = 0;
-  this->lock();
 
   // Read the CS parameters and apply them
   getDoubleParam(SYM_HEX_TXU_DMD_, &values[0]);
@@ -728,7 +720,6 @@ int SymetrieHexapod::applyConfigCS()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_CS failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -736,7 +727,6 @@ int SymetrieHexapod::applyConfigMachineLimit()
 {
   double values[13];
   int status = 0;
-  this->lock();
 
   // Read the machine limit parameters and apply them
   values[0] = 1;
@@ -757,7 +747,6 @@ int SymetrieHexapod::applyConfigMachineLimit()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_LIMIT failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -765,7 +754,6 @@ int SymetrieHexapod::applyConfigMachineLimitEnable()
 {
   int ivalues[2];
   int status = 0;
-  this->lock();
 
   // Read the machine limit parameters and apply them
   ivalues[0] = 1;
@@ -775,7 +763,6 @@ int SymetrieHexapod::applyConfigMachineLimitEnable()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_LIMITENABLE failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -783,7 +770,6 @@ int SymetrieHexapod::applyConfigUserLimit()
 {
   double values[13];
   int status = 0;
-  this->lock();
 
   // Read the user limit parameters and apply them
   values[0] = 2;
@@ -804,7 +790,6 @@ int SymetrieHexapod::applyConfigUserLimit()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_LIMIT failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -812,7 +797,6 @@ int SymetrieHexapod::applyConfigUserLimitEnable()
 {
   int ivalues[2];
   int status = 0;
-  this->lock();
 
   // Read the machine limit parameters and apply them
   ivalues[0] = 2;
@@ -822,7 +806,6 @@ int SymetrieHexapod::applyConfigUserLimitEnable()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_LIMITENABLE failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -830,7 +813,6 @@ int SymetrieHexapod::applyConfigControl()
 {
   double values[13]={epicsNAN};//NAN
   int status = 0;
-  this->lock();
 
   // Read the auto activate parameters and apply them
   int activate = 0;
@@ -845,7 +827,6 @@ int SymetrieHexapod::applyConfigControl()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_CONTROL failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -853,8 +834,7 @@ int SymetrieHexapod::applyConfigStallCurrent()
 {
   double values[13];
   int status = 0;
-  this->lock();
-
+ 
   // Read the stall current parameter and apply it
   getDoubleParam(SYM_HEX_STALL_CURRENT_DMD_, &values[0]);
   status = setConfigItem("C_CFG_STALLCURRENT", 1, values);
@@ -862,7 +842,6 @@ int SymetrieHexapod::applyConfigStallCurrent()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_STALLCURRENT failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -870,7 +849,6 @@ int SymetrieHexapod::applyConfigBacklash()
 {
   double values[13];
   int status = 0;
-  this->lock();
 
   // Read the backlash strategy parameters and apply them
   int axis = 0;
@@ -882,7 +860,6 @@ int SymetrieHexapod::applyConfigBacklash()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_BACKLASH failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -890,7 +867,6 @@ int SymetrieHexapod::applyConfigKinematic()
 {
   int ivalues[13];
   int status = 0;
-  this->lock();
 
   // Read the kinematic mode parameter and apply
   getIntegerParam(SYM_HEX_KIN_MODE_DMD_, &ivalues[0]);
@@ -899,7 +875,6 @@ int SymetrieHexapod::applyConfigKinematic()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_KIN failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -907,7 +882,6 @@ int SymetrieHexapod::applyConfigTuning()
 {
   int ivalues[13];
   int status = 0;
-  this->lock();
 
   // Read the tuning index parameter and apply
   getIntegerParam(SYM_HEX_TUNING_IDX_DMD_, &ivalues[0]);
@@ -916,7 +890,6 @@ int SymetrieHexapod::applyConfigTuning()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_TUNING failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -924,7 +897,6 @@ int SymetrieHexapod::applyConfigPower()
 {
   int ivalues[13];
   int status = 0;
-  this->lock();
 
   // Read the tuning index parameter and apply
   getIntegerParam(SYM_HEX_CFG_POWER_ENABLE_DMD_, &ivalues[0]);
@@ -934,7 +906,6 @@ int SymetrieHexapod::applyConfigPower()
     debug(DEBUG_ERROR, "SymetrieHexapod::applyConfig", "C_CFG_POWER failed");
   }
 
-  this->unlock();
   return status;
 }
 
@@ -1008,11 +979,7 @@ void SymetrieHexapod::applyConfig()
     status = reply;
   }
   
-  this->lock();
-
   recordCmdResult(status);
-
-  this->unlock();
 }
 
 void SymetrieHexapod::readErrors()
@@ -1021,88 +988,83 @@ void SymetrieHexapod::readErrors()
   char response[CHAR_ARRAY_SIZE];
   int ival = 0;
   double dval = 0;
-  // First read the number of errors
-  this->lock();
-    // Iterate over all errors
-    std::vector<std::string> vals;
-    setIntegerParam(SYM_HEX_ERROR_QTY_, no_of_errors_);
-    for (int index = 0; index < 20; index++){
-      std::stringstream err_msg;
-      vals.clear();
-      if (index < no_of_errors_){
-        sprintf(command, "c_par(0)=%d c_cmd=C_ERR_INFO", index);
-        immediateWriteRead(command, response);
-        waitForCommandComplete();
 
-        immediateWriteRead("c_par(0),8,1", response);
-        std::string sresp(response);
-        std::size_t current, previous = 0;
-        current = sresp.find('\r');
-        while (current != std::string::npos){
-          vals.push_back(sresp.substr(previous, current-previous));
-          previous = current + 1;
-          current = sresp.find('\r', previous);
-        }
+  // Iterate over all errors
+  std::vector<std::string> vals;
+  setIntegerParam(SYM_HEX_ERROR_QTY_, no_of_errors_);
+  for (int index = 0; index < 20; index++){
+    std::stringstream err_msg;
+    vals.clear();
+    if (index < no_of_errors_){
+      sprintf(command, "c_par(0)=%d c_cmd=C_ERR_INFO", index);
+      immediateWriteRead(command, response);
+      waitForCommandComplete();
 
-        sscanf(vals[1].c_str(), "%d", &ival);
-        setIntegerParam(index, SYM_HEX_ERROR_CODE_, ival);
-
-        err_msg << std::string(errors[ival]);
-
-        sscanf(vals[2].c_str(), "%lf", &dval);
-        setDoubleParam(index, SYM_HEX_ERROR_TIME_, dval);
-
-        sscanf(vals[3].c_str(), "%d", &ival);
-        setIntegerParam(index, SYM_HEX_ERROR_GROUP_, ival);
-
-        sscanf(vals[4].c_str(), "%d", &ival);
-        setIntegerParam(index, SYM_HEX_ERROR_AXIS_, ival);
-
-        if (ival > 0){
-          err_msg << " AXIS: " << ival;
-        }
-
-        sscanf(vals[5].c_str(), "%d", &ival);
-        setIntegerParam(index, SYM_HEX_ERROR_RETURN_, ival);
-
-        if (ival > 0){
-          err_msg << " RETURN: " << ival;
-        }
-
-        sscanf(vals[6].c_str(), "%d", &ival);
-        setIntegerParam(index, SYM_HEX_ERROR_DATA1_, ival);
-
-        if (ival > 0){
-          err_msg << " DATA1: " << ival;
-        }
-
-        sscanf(vals[7].c_str(), "%d", &ival);
-        setIntegerParam(index, SYM_HEX_ERROR_DATA2_, ival);
-
-        if (ival > 0){
-          err_msg << " DATA2: " << ival;
-        }
-        
-        setStringParam(index, SYM_HEX_ERROR_DESC_, err_msg.str().c_str());
-
-      } else {
-        setIntegerParam(index, SYM_HEX_ERROR_QTY_, 0);
-        setIntegerParam(index, SYM_HEX_ERROR_CODE_, 0);
-        setStringParam(index, SYM_HEX_ERROR_DESC_, "");
-        setDoubleParam(index, SYM_HEX_ERROR_TIME_, 0.0);
-        setIntegerParam(index, SYM_HEX_ERROR_GROUP_, 0);
-        setIntegerParam(index, SYM_HEX_ERROR_AXIS_, 0);
-        setIntegerParam(index, SYM_HEX_ERROR_RETURN_, 0);
-        setIntegerParam(index, SYM_HEX_ERROR_DATA1_, 0);
-        setIntegerParam(index, SYM_HEX_ERROR_DATA2_, 0);
+      immediateWriteRead("c_par(0),8,1", response);
+      std::string sresp(response);
+      std::size_t current, previous = 0;
+      current = sresp.find('\r');
+      while (current != std::string::npos){
+        vals.push_back(sresp.substr(previous, current-previous));
+        previous = current + 1;
+        current = sresp.find('\r', previous);
       }
-callParamCallbacks(index);
+
+      sscanf(vals[1].c_str(), "%d", &ival);
+      setIntegerParam(index, SYM_HEX_ERROR_CODE_, ival);
+
+      err_msg << std::string(errors[ival]);
+
+      sscanf(vals[2].c_str(), "%lf", &dval);
+      setDoubleParam(index, SYM_HEX_ERROR_TIME_, dval);
+
+      sscanf(vals[3].c_str(), "%d", &ival);
+      setIntegerParam(index, SYM_HEX_ERROR_GROUP_, ival);
+
+      sscanf(vals[4].c_str(), "%d", &ival);
+      setIntegerParam(index, SYM_HEX_ERROR_AXIS_, ival);
+
+      if (ival > 0){
+        err_msg << " AXIS: " << ival;
+      }
+
+      sscanf(vals[5].c_str(), "%d", &ival);
+      setIntegerParam(index, SYM_HEX_ERROR_RETURN_, ival);
+
+      if (ival > 0){
+        err_msg << " RETURN: " << ival;
+      }
+
+      sscanf(vals[6].c_str(), "%d", &ival);
+      setIntegerParam(index, SYM_HEX_ERROR_DATA1_, ival);
+
+      if (ival > 0){
+        err_msg << " DATA1: " << ival;
+      }
+
+      sscanf(vals[7].c_str(), "%d", &ival);
+      setIntegerParam(index, SYM_HEX_ERROR_DATA2_, ival);
+
+      if (ival > 0){
+        err_msg << " DATA2: " << ival;
+      }
+      
+      setStringParam(index, SYM_HEX_ERROR_DESC_, err_msg.str().c_str());
+
+    } else {
+      setIntegerParam(index, SYM_HEX_ERROR_QTY_, 0);
+      setIntegerParam(index, SYM_HEX_ERROR_CODE_, 0);
+      setStringParam(index, SYM_HEX_ERROR_DESC_, "");
+      setDoubleParam(index, SYM_HEX_ERROR_TIME_, 0.0);
+      setIntegerParam(index, SYM_HEX_ERROR_GROUP_, 0);
+      setIntegerParam(index, SYM_HEX_ERROR_AXIS_, 0);
+      setIntegerParam(index, SYM_HEX_ERROR_RETURN_, 0);
+      setIntegerParam(index, SYM_HEX_ERROR_DATA1_, 0);
+      setIntegerParam(index, SYM_HEX_ERROR_DATA2_, 0);
     }
-//  }
-
+    callParamCallbacks(index);
+  }
   callParamCallbacks();
-
-  this->unlock();
 }
 
 int SymetrieHexapod::getConfigItem(const std::string& cmd, int num_params, double *params)
@@ -1202,7 +1164,6 @@ void SymetrieHexapod::getVersion()
   std::stringstream api_ver;
   debug(DEBUG_TRACE, "SymetrieHexapod::getVersion");
 
-  this->lock();
   immediateWriteRead("c_cmd=C_VERSION", response);
   waitForCommandComplete();
   for (int index = 0; index < 12; index++){
@@ -1220,7 +1181,6 @@ void SymetrieHexapod::getVersion()
   setIntegerParam(SYM_HEX_VERS_SYS_NUM_, params[10]);
   setIntegerParam(SYM_HEX_VERS_SYS_CFG_, params[11]);
   callParamCallbacks();
-  this->unlock();
 }
 
 int SymetrieHexapod::waitForCommandComplete()
@@ -1904,6 +1864,246 @@ asynStatus SymetrieHexapod::writeOctet(asynUser *pasynUser, const char *value, s
   return status;
 }
 
+/** Reports on status of the driver
+  * \param[in] fp The file pointer on which report information will be written
+  * \param[in] level The level of report detail desired
+  *
+  * If details > 0 then information is printed about each axis.
+  * After printing controller-specific information it calls asynMotorController::report()
+  */
+void SymetrieHexapod::report(FILE *fp, int level)
+{
+    fprintf(fp, "SymetrieHexapod motor driver %s, numAxes=%d, moving poll period=%f, idle poll period=%f\n", 
+      this->portName, numAxes_, movingPollPeriod_, idlePollPeriod_);
+
+    // Call the base class method
+    pmacController::report(fp, level);
+}
+
+// These are the methods that override those for asynMotorController and asynMotorAxis
+
+/** Returns a pointer to an SymetrieAxis object.
+  * Returns NULL if the axis number encoded in pasynUser is invalid.
+  * \param[in] pasynUser asynUser structure that encodes the axis index number. */
+SymetrieAxis* SymetrieHexapod::getAxis(asynUser *pasynUser)
+{
+  return static_cast<SymetrieAxis*>(asynMotorController::getAxis(pasynUser));
+}
+
+/** Returns a pointer to an SymetrieAxis object.
+  * Returns NULL if the axis number encoded in pasynUser is invalid.
+  * \param[in] axisNo Axis index number. */
+SymetrieAxis* SymetrieHexapod::getAxis(int axisNo)
+{
+  return static_cast<SymetrieAxis*>(asynMotorController::getAxis(axisNo));
+}
+
+// We implement this method because we can read the status for all axes in a single call
+asynStatus SymetrieHexapod::poll()
+{
+  readStatus();
+  return asynSuccess;
+}
+
+// These are the SymetrieAxis methods
+
+/** Creates a new SymetrieAxis object.
+  * \param[in] pC Pointer to the SymetrieHexapod to which this axis belongs. 
+  * \param[in] axisNo Index number of this axis, range 0 to pC->numAxes_-1.
+  * 
+  * Initializes register numbers, etc.
+  */
+SymetrieAxis::SymetrieAxis(SymetrieHexapod *pC, int axisNo)
+  : pmacAxis(pC, axisNo),
+    pC_(pC)
+{  
+}
+
+/** Reports on status of the axis
+  * \param[in] fp The file pointer on which report information will be written
+  * \param[in] level The level of report detail desired
+  *
+  * After printing device-specific information calls asynMotorAxis::report()
+  */
+void SymetrieAxis::report(FILE *fp, int level)
+{
+  if (level > 0) {
+    fprintf(fp, "  axis %d\n",
+            axisNo_);
+  }
+
+  // Call the base class method
+  pmacAxis::report(fp, level);
+}
+
+asynStatus SymetrieAxis::setVelocityAndAcceleration(double velocity, double acceleration)
+{
+  double velos[2];
+  int status;
+  static const char *functionName = "SymetrieAxis::setVelocityAndAcceleration";
+
+  // Convert from motor record units to device units
+  velocity /= MOTOR_SCALE_FACTOR;
+  acceleration /= MOTOR_SCALE_FACTOR;
+  // Acceleration is in units/s^2 but device needs time
+  acceleration = velocity/acceleration;
+  if (axisNo_ < 3)
+    pC_->setDoubleParam(pC_->SYM_HEX_VT_DMD_, velocity);
+  else
+    pC_->setDoubleParam(pC_->SYM_HEX_VR_DMD_, velocity);
+  // Read the velocity parameters and apply them
+  pC_->getDoubleParam(pC_->SYM_HEX_VT_DMD_, &velos[0]);
+  pC_->getDoubleParam(pC_->SYM_HEX_VR_DMD_, &velos[1]);
+  status = pC_->setConfigItem("C_CFG_SPEED", 2, velos);
+  if (status < 0){
+    debug(DEBUG_ERROR, "%s: C_CFG_SPEED failed", functionName);
+  }
+  pC_->setDoubleParam(pC_->SYM_HEX_TA_DMD_, acceleration);
+  status = pC_->setConfigItem("C_CFG_TA", 1, &acceleration);
+  if (status < 0) {
+    debug(DEBUG_ERROR, "%s: C_CFG_TA failed", functionName);
+  }
+  return status ? asynError : asynSuccess;
+}
+
+asynStatus SymetrieAxis::move(double position, int relative, double minVelocity, double maxVelocity, double acceleration)
+{
+  //static const char *functionName = "SymetrieAxis::move";
+
+  //printf("%s, position=%f, relative=%d, minVelocity=%f, maxVelocity=%f, acceleration=%f\n",
+  //       functionName, position, relative, minVelocity, maxVelocity, acceleration);
+  setVelocityAndAcceleration(maxVelocity, acceleration);
+  // If relative is true we use USER_RELATIVE coordinate system.  May want to change to OBJECT_RELATIVE (1)
+  int moveType = relative ? 2 : 0;
+  // Target positions of all axes
+  double positions[NUM_MOTOR_AXES];
+  // Set target position for this axis;
+  pC_->setDoubleParam(pC_->SYM_HEX_MOVE_TX_DMD_ + axisNo_, position/MOTOR_SCALE_FACTOR);
+
+  std::stringstream cmd;
+  char response[CHAR_ARRAY_SIZE];
+  cmd << "c_par(0)=" << moveType << " ";
+  for (int axis=0; axis<NUM_MOTOR_AXES; axis++) {
+    pC_->getDoubleParam(pC_->SYM_HEX_MOVE_TX_DMD_ + axis, &positions[axis]);
+    cmd << "c_par(" << axis+1 << ")=" << positions[axis] << " ";
+  }
+  cmd << "c_cmd=C_MOVE_PTP";
+  pC_->immediateWriteRead(cmd.str().c_str(), response);
+  int result = pC_->waitForCommandComplete();
+  pC_->recordCmdResult(result);
+  return result ? asynError : asynSuccess;
+}
+
+asynStatus SymetrieAxis::home(double minVelocity, double maxVelocity, double acceleration, int forwards)
+{
+  char response[CHAR_ARRAY_SIZE];
+  //static const char *functionName = "SymetrieAxis::home";
+
+  //printf("%s, minVelocity=%f, maxVelocity=%f, acceleration=%f, forwards=%d\n", 
+  //       functionName, minVelocity, maxVelocity, acceleration, forwards);
+  setVelocityAndAcceleration(maxVelocity, acceleration);
+  pC_->immediateWriteRead("c_cmd=C_HOME", response);
+  int result = pC_->waitForCommandComplete();
+  pC_->recordCmdResult(result);
+  return result ? asynError : asynSuccess;
+}
+
+asynStatus SymetrieAxis::moveVelocity(double minVelocity, double maxVelocity, double acceleration)
+{
+  static const char *functionName = "SymetrieAxis::moveVelocity";
+
+  asynPrint(pasynUser_, ASYN_TRACE_ERROR,
+            "%s: moveVelocity not supported, minVelocity=%f, maxVelocity=%f, acceleration=%f\n", 
+            functionName, minVelocity, maxVelocity, acceleration);
+  return asynError;
+}
+
+asynStatus SymetrieAxis::stop(double acceleration )
+{
+  char response[CHAR_ARRAY_SIZE];
+  static const char *functionName = "SymetrieAxis::stop";
+
+  printf("%s, acceleration=%f\n", functionName, acceleration);
+  pC_->immediateWriteRead("c_cmd=C_STOP", response);
+  int result = pC_->waitForCommandComplete();
+  pC_->recordCmdResult(result);
+  return result ? asynError : asynSuccess;
+}
+
+asynStatus SymetrieAxis::setPosition(double position)
+{
+  static const char *functionName = "SymetrieAxis::setPosition";
+
+  printf("%s: position=%f\n", functionName, position);
+  // Set target position for this axis;
+  setDoubleParam(pC_->SYM_HEX_MOVE_TX_DMD_ + axisNo_, position/MOTOR_SCALE_FACTOR);
+  return asynSuccess;
+}
+
+asynStatus SymetrieAxis::setClosedLoop(bool closedLoop)
+{
+  //static const char *functionName = "SymetrieAxis::setClosedLoop";
+  char response[CHAR_ARRAY_SIZE];
+
+  //asynPrint(pasynUser_, ASYN_TRACE_ERROR, "%s, closedLoop=%s\n", functionName, closedLoop ? "true" : "false");
+  if (closedLoop)
+    pC_->immediateWriteRead("c_cmd=C_CONTROLON", response);
+  else
+    pC_->immediateWriteRead("c_cmd=C_CONTROLOFF", response);
+  int result = pC_->waitForCommandComplete();
+  pC_->recordCmdResult(result);
+  //asynPrint(pasynUser_, ASYN_TRACE_ERROR, "%s, result=%d returning=%d\n", functionName, result, result ? asynError : asynSuccess);
+  return result ? asynError : asynSuccess;
+}
+
+/** Polls the axis.
+  * This function reads the motor position, the limit status, the home status, the moving status, 
+  * and the drive power-on status. 
+  * It calls setIntegerParam() and setDoubleParam() for each item that it polls,
+  * and then calls callParamCallbacks() at the end.
+  * \param[out] moving A flag that is set indicating that the axis is moving (true) or done (false). */
+asynStatus SymetrieAxis::poll(bool *moving)
+{ 
+  int hexapodStatus;
+  int motionDone;
+  int driveOn;
+  double position;
+  //static const char *functionName = "SymetrieAxis::poll";
+
+  // All of the values have already been updated by the call to readStatus in the SymetrieHexapos::poll() method
+
+  // Current motor position
+  pC_->getDoubleParam(pC_->SYM_HEX_S_UTO_TX_ + axisNo_, &position);
+  setDoubleParam(pC_->motorPosition_, position*MOTOR_SCALE_FACTOR);
+
+  // Moving status.  Use status of motion task.
+  pC_->getIntegerParam(pC_->SYM_HEX_S_HEXA_, &hexapodStatus);
+  motionDone = (hexapodStatus & 16) == 0;
+  setIntegerParam(pC_->motorStatusDone_, motionDone);
+  *moving = motionDone ? false : true;
+
+  // Limit status.  
+  // Virtual axes don't have hardware limits
+  // We may want to use software limit status from checking move validity
+  setIntegerParam(pC_->motorStatusHighLimit_, 0);
+  setIntegerParam(pC_->motorStatusLowLimit_, 0);
+  setIntegerParam(pC_->motorStatusAtHome_, 0);
+
+  // Gain support.  This allows turning power on and off
+  setIntegerParam(pC_->motorStatusGainSupport_, 1);
+  
+  // Drive power on status
+  driveOn = (hexapodStatus & 4) != 0;
+  setIntegerParam(pC_->motorStatusPowerOn_, driveOn);
+ 
+  // No problem status for now.
+  setIntegerParam(pC_->motorStatusProblem_, 0);
+
+  callParamCallbacks();
+  return asynSuccess;
+}
+
+
 SymetrieHexapod::~SymetrieHexapod()
 {
 }
@@ -1919,13 +2119,17 @@ extern "C" {
 asynStatus
 symHexCreateController(const char *portName,
                        const char *lowLevelPortName, 
-                       int lowLevelPortAddress) {
+                       int lowLevelPortAddress,
+                       double movingPollPeriod,
+                       double idlePollPeriod) 
+{
+  if (movingPollPeriod == 0) movingPollPeriod = 5.;
+  if (idlePollPeriod == 0) idlePollPeriod = 5.;
   new SymetrieHexapod(portName,
                       lowLevelPortName,
                       lowLevelPortAddress,
-                      20,
-                      5.0,
-                      5.0);
+                      movingPollPeriod,
+                      idlePollPeriod);
   return asynSuccess;
 }
 
@@ -1935,13 +2139,17 @@ symHexCreateController(const char *portName,
 static const iocshArg symHexCreateControllerArg0 = {"Controller port name", iocshArgString};
 static const iocshArg symHexCreateControllerArg1 = {"Low level port name", iocshArgString};
 static const iocshArg symHexCreateControllerArg2 = {"Low level port address", iocshArgInt};
+static const iocshArg symHexCreateControllerArg3 = {"Moving poll period", iocshArgDouble};
+static const iocshArg symHexCreateControllerArg4 = {"Idle poll period", iocshArgDouble};
 static const iocshArg *const symHexCreateControllerArgs[] = {&symHexCreateControllerArg0,
                                                              &symHexCreateControllerArg1,
-                                                             &symHexCreateControllerArg2};
-static const iocshFuncDef configsymHexCreateController = {"symetrieHexapod", 3,
+                                                             &symHexCreateControllerArg2,
+                                                             &symHexCreateControllerArg3,
+                                                             &symHexCreateControllerArg4};
+static const iocshFuncDef configsymHexCreateController = {"symetrieHexapod", 5,
                                                           symHexCreateControllerArgs};
 static void configsymHexCreateControllerCallFunc(const iocshArgBuf *args) {
-  symHexCreateController(args[0].sval, args[1].sval, args[2].ival);
+  symHexCreateController(args[0].sval, args[1].sval, args[2].ival, args[3].dval, args[4].dval);
 }
 
 
