@@ -315,7 +315,7 @@ friend class SymetrieHexapod;
 
 
 
-class SymetrieHexapod
+class epicsShareClass SymetrieHexapod
         : public pmacController {
 
 public:
