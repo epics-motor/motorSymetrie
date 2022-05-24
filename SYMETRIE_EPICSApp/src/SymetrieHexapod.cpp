@@ -13,9 +13,9 @@
 #include <iocsh.h>
 #include <drvSup.h>
 #include <registryFunction.h>
-#include "SymetrieHexapod.h"
-#include <epicsExport.h>
 #include <sstream>
+#include <epicsExport.h>
+#include "SymetrieHexapod.h"
 
 #define CHAR_ARRAY_SIZE 2048
 
