@@ -3,8 +3,8 @@ beginScreenProperties
 major 4
 minor 0
 release 1
-x 1205
-y 88
+x 967
+y 167
 w 200
 h 100
 font "helvetica-medium-r-18.0"
@@ -41,19 +41,23 @@ botShadowColor rgb 17920 17920 17920
 font "helvetica-medium-r-14.0"
 icon
 buttonLabel "Hexapod Main"
-numPvs 2
-numDsps 1
+numPvs 4
+numDsps 2
 displayFileName {
   0 "SymetrieHexapodMain.edl"
+  1 "motor6x.edl"
 }
 menuLabel {
-  0 "Hexapod"
+  0 "Hexapod main"
+  1 "Motors"
 }
 symbols {
   0 "P=SYM:,R=HEX01:"
+  1 "P=SYM:HEX01:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6"
 }
 replaceSymbols {
   0 1
+  1 1
 }
 endObjectProperties
 

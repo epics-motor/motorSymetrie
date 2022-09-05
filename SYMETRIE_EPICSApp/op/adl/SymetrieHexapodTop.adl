@@ -5,8 +5,8 @@ file {
 }
 display {
 	object {
-		x=1205
-		y=88
+		x=967
+		y=167
 		width=200
 		height=100
 	}
@@ -95,9 +95,14 @@ display {
 		height=25
 	}
 	display[0] {
-		label="Hexapod"
+		label="Hexapod main"
 		name="SymetrieHexapodMain.adl"
 		args="P=SYM:,R=HEX01:"
+	}
+	display[1] {
+		label="Motors"
+		name="motor6x.adl"
+		args="P=SYM:HEX01:,M1=m1,M2=m2,M3=m3,M4=m4,M5=m5,M6=m6"
 	}
 	clr=14
 	bclr=51
