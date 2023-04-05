@@ -5,4 +5,4 @@
 # Use motor/module's generated release file when buidling inside motor
 -include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
 
-SUPPORT=/corvette/home/epics/support
+SUPPORT=/corvette/home/epics/devel
