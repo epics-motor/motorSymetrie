@@ -2,8 +2,8 @@ symetrie_hexapod Releases
 =========================
 
 The versions of EPICS base, asyn, and motor modules used for
-each release can be obtained from configure/RELEASE.local. The file
-configure/RELEASE.linux-x86_64.Common should be modified to reflect
+each release can be obtained from configure/RELEASE.local.EXAMPLE. The file
+configure/RELEASE.local or RELEASE.local.linux-x86_64.Common should be modified to reflect
 site location of dependencies.
 
 
@@ -32,3 +32,4 @@ Update:
 ======================
 Creation.
 Compatible with SYMETRIE positionning hexapod API version 5.0.191103
+
