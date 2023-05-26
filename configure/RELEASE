@@ -1,8 +1,9 @@
 # RELEASE - Location of external support modules
 
+SUPPORT=/corvette/home/epics/support
+
 # Use motorOms's RELEASE.local when building outside motor
 -include $(TOP)/configure/RELEASE.local
 # Use motor/module's generated release file when buidling inside motor
 -include $(TOP)/../RELEASE.$(EPICS_HOST_ARCH).local
 
-SUPPORT=/corvette/home/epics/devel
